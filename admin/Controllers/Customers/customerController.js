@@ -6,8 +6,7 @@ app.controller("customerListController", function(dataService, alertService, pag
 	clc.Customers.data = [];
 	clc.Customers.data2show = [];
 
-	clc.Paging = pageService;
-	clc.pagingReuired = true;
+	clc.Paging = pageService;	
 	
 
     
@@ -24,8 +23,8 @@ app.controller("customerListController", function(dataService, alertService, pag
                 console.log("Fetching customers - success");
                 console.log( clc.Customers.data.length + " record(s) feched.");
 				//clc.Customers.data = clc.Customers.data;
-				clc.pagingReuired = (clc.Customers.data.length >= 15) ? true : false;
-				clc.Paging.init(clc.Customers, 15, clc.pagingReuired);
+				
+				clc.Paging.init(clc.Customers);
                 //console.log(clc.Customers.data2show);
 			}
 			else

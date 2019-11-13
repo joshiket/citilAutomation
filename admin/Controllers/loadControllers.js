@@ -17,6 +17,7 @@ function init()
     addScript("Controllers/Products/productController.js");
     addScript("Controllers/CertificationProviders/certificationProviderController.js");
     addScript("Controllers/CertifiedProfessionals/certifiedProfessionalController.js");
+    addScript("Controllers/Certifcations/certificationController.js");
     alert("Initialised");
 }    
 

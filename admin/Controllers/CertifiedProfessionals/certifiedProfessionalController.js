@@ -38,6 +38,7 @@ app.controller("certifiedProfessionalListController", function(dataService,alert
 	cplc.CertifiedProfessionals.fetchData.primaryKey = "cprovId";
 	cplc.CertifiedProfessionals.fetchData.action = "getAllCertifiedProfessionals";
 	cplc.CertifiedProfessionals.Paging = pageService;
+	cplc.CertifiedProfessionals.pagingRequired = true;
 
 	cplc.getCertifiedProfessionals = function(){
 		console.log("Fetching Certified professionals...");
@@ -47,8 +48,13 @@ app.controller("certifiedProfessionalListController", function(dataService,alert
 			console.log(result);
 			if(! result.data.error) 
 			{
-				//cplc.listvar = angular.fromJson(result.data.data);
-				//console.log(cplc.listvar);
+				cplc.CertifiedProfessionals.data = angular.fromJson(result.data.data);
+				cplc.CertifiedProfessionals.pagingRequired = (cplc.CertifiedProfessionals.data.length >= 15) ? true: false;
+				if(cplc.CertifiedProfessionals.data.length >= 15)
+					cplc.CertifiedProfessionals.Paging.init(cplc.CertifiedProfessionals,15,cplc.CertifiedProfessionals.pagingRequired);
+				else
+				cplc.CertifiedProfessionals.Paging.init(cplc.CertifiedProfessionals,cplc.CertifiedProfessionals.data.length,cplc.CertifiedProfessionals.pagingRequired);
+				console.log(cplc.CertifiedProfessionals.data2show);
 				//console.log("Fetching Certified professionals - success");
 			}
 			else

@@ -1,9 +1,9 @@
 <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa-file-signature"></i> Certification Providers</h3>
-                    <h6><a href="#/">Dashboard</a> |  <a href="#/customers/list">OEM Certificataions</a> |<a href="#/CertificationProviders/list"> Certification Providers</a> | Manage Certification Providers</h6>
-            </div>
+                <h3 class="page-header"><i class="fa fa-file-signature"></i> Certified Professionals</h3>
+                <h6><a href="#/">Dashboard</a> |  <a href="#/customers/list">OEM Certificataions</a> |<a href="#/CertifiedProfessionals/list"> Certified Professionals</a> | New Certified Professional</h6>
+        </div>
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
@@ -12,7 +12,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-file-signature fa-fw"></i> Manage Certification Providers
+                        <i class="fa fa-file-signature fa-fw"></i> Manage Certified Professionals
                         <div class="pull-right">
                             
                         </div>
@@ -33,33 +33,33 @@
                             <thead>
                                 <tr style="font-weight:bold;">
                                     <td>Sr.no.</td>
-                                    <td>Certifiction Provider</td> 
+                                    <td>Certified Professionals</td> 
                                     <td>Actions</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                 <tr ng-repeat="cp in cplc.CertificateProviders.data2show  | filter:query track by $index">
+                                 <tr ng-repeat="cp in cplc.CertifiedProfessionals.data2show  | filter:query track by $index">
                                     <td> {{$index+1}}</td> 
-                                    <td> {{cp.cprovName}}</td>
+                                    <td> {{cp.cprofName}}</td>
                                     <td> 
-                                        <a href="#/distributors/update/{{c.custId}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
-                                        <a href="#/distributors/details/{{c.custId}}" class="btn btn-info btn-xs"><i class="fa fa-list"></i></a>
-                                        <a href="#/distributors/delete/{{c.custId}}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                        <a href="#/CertifiedProfessionals/update/{{c.custId}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
+                                        <a href="#/CertifiedProfessionals/details/{{c.custId}}" class="btn btn-info btn-xs"><i class="fa fa-list"></i></a>
+                                        <a href="#/CertifiedProfessionals/delete/{{c.custId}}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                                     </td>
                                  </tr>
                             </tbody>
                         </table>
-                        <div class="row">
+                        <div class="row" ng-show="cplc.CertifiedProfessionals.Paging.pagingRequired();">
                             <div class="col-lg-9 text-left">
-                                <button class="btn btn-primary btn-xs" ng-show="dlc.Paging.showPrevious()" ng-click="dlc.Paging.First(dlc.Distributors);"> <i class="fa fa-backward"></i></button>
-                                <button class="btn btn-primary btn-xs" ng-show="dlc.Paging.showNext()" ng-click="dlc.Paging.Last(dlc.Distributors);"> <i class="fa fa-forward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="cplc.CertifiedProfessionals.Paging.showPrevious()" ng-click="cplc.CertifiedProfessionals.Paging.First(cplc.CertifiedProfessionals);"> <i class="fa fa-backward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="cplc.CertifiedProfessionals.Paging.showNext()" ng-click="cplc.CertifiedProfessionals.Paging.Last(cplc.CertifiedProfessionals);"> <i class="fa fa-forward"></i></button>
                             </div>                              
                             <div class="col-lg-2 text-right" style="margin-top:-5px;">
-                                <h6>Page {{dlc.Paging.getCurrentPage()}} of {{dlc.Paging.getNoOfPages()}}</h6>
+                                <h6>Page {{cplc.Paging.getCurrentPage()}} of {{cplc.Paging.getNoOfPages()}}</h6>
                             </div>
                             <div class="col-lg-1 text-left">                                
-                                <button class="btn btn-primary btn-xs" ng-show="dlc.Paging.showPrevious()" ng-click="dlc.Paging.Previous(dlc.Distributors);"> <i class="fa fa-angle-left"></i></button>
-                                <button class="btn btn-primary btn-xs" ng-show="dlc.Paging.showNext()" ng-click="dlc.Paging.Next(dlc.Distributors);"> <i class="fa fa-angle-right"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="cplc.Paging.showPrevious()" ng-click="cplc.CertifiedProfessionals.Paging.Previous(cplc.CertifiedProfessionals);"> <i class="fa fa-angle-left"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="cplc.Paging.showNext()" ng-click="cplc.CertifiedProfessionals.Paging.Next(cplc.CertifiedProfessionals);"> <i class="fa fa-angle-right"></i></button>
                             </div>
                         </div>                        
                     </div>

@@ -124,7 +124,7 @@ app.controller("WarrantyRecordListController", function(dataService, alertServic
 	wrlc.Warranty.fetchData.primaryKey = "warrId";
     wrlc.Warranty.fetchData.action = "getAllWarrantyRecords";
     wrlc.Paging = pageService;
-    wrlc.pagingRequired = true;
+    
 
 	wrlc.getWarrantyRecords = function(){
 		console.log("Fetching Warranty Records...");
@@ -139,7 +139,7 @@ app.controller("WarrantyRecordListController", function(dataService, alertServic
                 console.log("Fetching Warranty Records - success");
                 console.log(wrlc.Warranty.data.length + " record(s) fetched.");
                 wrlc.pagingRequired = (wrlc.Warranty.data.length >= 15) ? true : false;
-                wrlc.Paging.init(wrlc.Warranty,100,wrlc.pagingReuired);
+                wrlc.Paging.init(wrlc.Warranty,100);
                 console.log(wrlc.Warranty.data2show);
 			}
 			else

@@ -8,7 +8,7 @@ app.controller("productListController", function(dataService, alertService, page
 	plc.Products.data2show = [];
 	
 	plc.Paging = pageService;
-	plc.pagingRequired = true;
+	
 	
     plc.getProducts = function(){
 		console.log("Fetching products...");
@@ -21,9 +21,8 @@ app.controller("productListController", function(dataService, alertService, page
 			{
 				plc.Products.data = angular.fromJson(data.data);				
                 console.log("Fetching products - success");
-				console.log( plc.Products.data.length + " record(s) feched.");		
-				plc.pagingRequired = (plc.Products.data.length >=15) ? true : false;		
-				plc.Paging.init(plc.Products, 15,plc.pagingRequired);
+				console.log( plc.Products.data.length + " record(s) feched.");						
+				plc.Paging.init(plc.Products);
                 console.log(plc.Products.data2show);
 			}
 			else

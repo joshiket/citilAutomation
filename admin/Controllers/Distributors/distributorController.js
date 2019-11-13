@@ -7,7 +7,7 @@ app.controller("ditributorListController", function(dataService, alertService, p
 	dlc.Distributors.data2show = [];
 
 	dlc.Paging = pageService;
-	dlc.pagingRequired = true;
+	
 	
     dlc.getDistributors = function(){
 		console.log("Fetching Distributors...");
@@ -22,8 +22,7 @@ app.controller("ditributorListController", function(dataService, alertService, p
                 console.log("Fetching distributors - success");
                  console.log( dlc.Distributors.data.length + " record(s) feched.");
 				//dlc.Distributors.data = dlc.Distributors.data;
-				dlc.pagingRequired = (dlc.Distributors.data.length >=15) ? true : false;
-				pageService.init(dlc.Distributors, 15,dlc.pagingRequired);
+				pageService.init(dlc.Distributors);
 				console.log(dlc.Distributors.data2show);
 				//alert(dlc.Paging.showNext());
 			}

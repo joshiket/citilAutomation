@@ -1,7 +1,8 @@
-
 <?php
 
-	include "Customer" . ".class.php";
+	spl_autoload_register(function($class) {
+		include $class . '.class.php';
+	});
 	Class CustomerDAO
 	{
 

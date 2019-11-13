@@ -1,25 +1,34 @@
 app.service("pageService", function(){
 	
 	this.Paging = {};
-	this.Paging.required = true;
-	this.Paging.noOfPages = 0;
-	this.Paging.currPage = 0;
-	this.Paging.noOfRecords = 0;
-	this.Paging.pageStart = 0;
-	this.Paging.pageEnd = 0;	
-	this.Paging.pageCount = 15;
-	this.Paging.showNext = false;
-	this.Paging.showPrev = false;    
-	this.Paging.firstPage = 0;
-	this.Paging.lastPage = 0;
+	this.Paging.required = false; //is paging required
+	this.Paging.noOfPages = 0; // no of pages 
+	this.Paging.currPage = 0; //  cuuurent displayed page
+	this.Paging.noOfRecords = 0; //no of records in data store
+	this.Paging.pageStart = 0; //first record that a particular page displays
+	this.Paging.pageEnd = 0; //last record that a particular page displays	
+	this.Paging.pageCount = 15; // no of records to be displayed on a page
+	this.Paging.showNext = false; // show next button
+	this.Paging.showPrev = false; // show previous button   
+	this.Paging.firstPage = 0; // first page of the pager
+	this.Paging.lastPage = 0; // last page of the pager
     
-	this.init = function(obj, pc,required)
-	{
-		this.Paging.required = required;
+	//initialise pager variables
+	this.init = function(obj,pc=15)
+	{		
+		
 		this.Paging.pageCount = pc;
 		this.Paging.noOfRecords = obj.data.length;
-		this.Paging.noOfPages = parseInt(this.Paging.noOfRecords / this.Paging.pageCount) + 1;
-		this.Paging.noOfPages =  (this.Paging.noOfPages==0) ? 1 : this.Paging.noOfPages;		
+		this.Paging.required = (obj.data.length >=15) ? true : false;
+		if(!this.Paging.required)
+		{			
+			this.Paging.pageCount = obj.data.length; 
+		}
+		else
+		{
+			this.Paging.noOfPages = parseInt(this.Paging.noOfRecords / this.Paging.pageCount) + 1;
+			this.Paging.noOfPages =  (this.Paging.noOfPages==0) ? 1 : this.Paging.noOfPages;	
+		}	
 		this.Paging.currPage = 0;
 		this.Paging.firstPage = 0;
 		this.Paging.lastPage = this.Paging.noOfPages-1;
@@ -34,7 +43,7 @@ app.service("pageService", function(){
 		this.populatePage(obj);
 
 	};
-	
+	// traverse to first page
 	this.First = function(obj)
 	{
 		this.Paging.currPage = this.Paging.firstPage;
@@ -43,7 +52,7 @@ app.service("pageService", function(){
 		this.Paging.showPrev = false;
 		this.populatePage(obj);
 	};
-	
+	// traverse to last page
 	this.Last = function(obj)
 	{
 		this.Paging.currPage = this.Paging.lastPage;
@@ -52,7 +61,7 @@ app.service("pageService", function(){
 		this.Paging.showNext = false;
 		this.populatePage(obj);
 	};
-    
+    // traverse to next page
 	this.Next = function(obj)
 	{	
 		this.Paging.currPage = (this.Paging.currPage + 1) % this.Paging.noOfPages;
@@ -65,7 +74,7 @@ app.service("pageService", function(){
 		if((this.Paging.currPage+1) == this.Paging.noOfPages)
 			this.Paging.showNext = false;
     };    
-    
+    // traverse to previous page
 	this.Previous = function(obj)	
 	{						
 		if(this.Paging.currPage == 0 )
@@ -83,7 +92,7 @@ app.service("pageService", function(){
 		this.Paging.pageEnd = this.Paging.pageStart + this.Paging.pageCount -1;		
 		this.populatePage(obj);
     };	   
-    
+    // populate a dta2show array i.e the current page
 	this.populatePage = function(obj)
 	{
 		var k =0;						
@@ -96,18 +105,18 @@ app.service("pageService", function(){
 			}
 		
 	};
-
+	//get cuurent page value 
 	this.getCurrentPage1 = function()
 	{
 		return this.Paging.currPage;
 	};
-
+	// whether the next button is to be displayed
 	this.showNext = function()
 	{
 		var result = (this.getNoOfPages() != this.getCurrentPage()) ? true : false;
 		return result;
 	};
-
+	// whether the previous button is to be displayed
 	this.showPrevious = function()
 	{
 		if(this.Paging.currPage == 0)
@@ -115,17 +124,17 @@ app.service("pageService", function(){
 		else
 			return true;
 	};	
-
+	// get current page value + 1
 	this.getCurrentPage = function()
 	{
 		return this.Paging.currPage + 1;
 	};
-
+	// get no of to be displayed
 	this.getNoOfPages = function()
 	{
 		return this.Paging.noOfPages;
 	};
-
+	// is paging required
 	this.pagingRequired = function()
 	{
 		return this.Paging.required;

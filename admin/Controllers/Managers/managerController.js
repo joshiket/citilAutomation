@@ -7,7 +7,7 @@ app.controller("managerListController", function(dataService, alertService,pageS
 	mlc.Managers.data2show = [];
 
 	mlc.Paging = pageService;
-	mlc.pagingRequired = true;
+	
     
     mlc.getManagers = function(){
 		console.log("Fetching Managers...");
@@ -22,8 +22,7 @@ app.controller("managerListController", function(dataService, alertService,pageS
                 console.log("Fetching Managers - success");
                 console.log( mlc.Managers.data.length + " record(s) feched.");
 				//mlc.Managers.data = mlc.Managers.data;
-				mlc.pagingRequired = (mlc.Managers.data.length >=15) ? true : false;
-				pageService.init(mlc.Managers,15,mlc.pagingRequired);
+				pageService.init(mlc.Managers);
 				//console.log(mlc.Managers.data2show);
 				//alert(mlc.Paging.showNext());
 			}

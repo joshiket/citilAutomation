@@ -148,9 +148,10 @@
                             <a href="#"><i class="fa fa-file-signature"></i>  &nbsp;OEM Certifications <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
+                                    <a href="#/Certifications/new">New OEM Certifications</a>
                                     </li>                                    
                                     <li>
-                                        <a href="#/products/list">Manage OEM Certifications</a>
+                                        <a href="#/Certifications/list">Manage OEM Certifications</a>
                                     </li>
                                 </ul>
                             </li>    

@@ -38,8 +38,8 @@
 				case "getW5D":
 					$msg = $this->getW5D();
                     break;
-                case "getW10D":
-					$msg = $this->getW10D();
+                case "getW30D":
+					$msg = $this->getW30D();
 					break;       
 				case "getW60D":
 					$msg = $this->getW60D();
@@ -63,10 +63,10 @@
             return $msg;
         }
 
-        public function getW10D()
+        public function getW30D()
         {
             $obj = new Notification();
-            $msg = $obj->getW5D();
+            $msg = $obj->getW30D();
             return $msg;
 		}
 

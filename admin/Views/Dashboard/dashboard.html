@@ -115,6 +115,7 @@
                         <table class="table table-striped, table-hover table-bordered table-condensed">
                             <thead>
                                 <tr>
+                                    <td>Sr.no.</td>
                                     <td>Customer</td>
                                     <td>Prod. Serial</td>
                                     <td>Prod Desc</td>
@@ -124,6 +125,7 @@
                             </thead>
                             <tbody>
                                  <tr ng-repeat="w in dbc.W5.data2show track by $index">
+                                    <td>{{$index+1}}</td>
                                      <td> {{w.custName}}</td>
                                      <td> {{w.prodSerial}}</td>
                                      <td> {{w.prodDesc}}</td>
@@ -138,9 +140,56 @@
                 <!-- /.panel -->
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> Warranties expiring within 30 days
+                        <div class="pull-right">
+                            <button class="btn btn-primary btn-xs btn-notify" ng-click="dbc.notifyW30D()">Notify</button>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body table-responsive">
+                        <table class="table table-striped, table-hover table-bordered table-condensed">                            
+                            <thead>
+                                <tr>
+                                    <td>Sr.no.</td>
+                                    <td>Customer</td>
+                                    <td>Prod. Serial</td>
+                                    <td>Prod Desc</td>
+                                    <td>Warranty Expires on</td>
+                                    <td>A/c Manager</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 <tr ng-repeat="w in dbc.W30.data2show track by $index">
+                                     <td>{{$index+1}}</td>
+                                     <td> {{w.custName}}</td>
+                                     <td> {{w.prodSerial}}</td>
+                                     <td> {{w.prodDesc}}</td>
+                                     <td> {{w.expDate}}</td>
+                                     <td> {{w.acMan}}</td>
+                                 </tr>
+                            </tbody>
+                        </table>
+                        <div class="row" ng-show="dbc.W30.data.length>=15">
+                            <div class="col-lg-9 text-left">
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W30.Paging.showPrevious()" ng-click="dbc.W30.Paging.First(dbc.W30);"> <i class="fa fa-backward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W30.Paging.showNext()" ng-click="dbc.W30.Paging.Last(dbc.W30);"> <i class="fa fa-forward"></i></button>                                
+                            </div>                                                            
+                            <div class="col-lg-2 text-right" style="margin-top:-5px;">
+                                <h6>Page {{dbc.W30.Paging.getCurrentPage()}} of {{dbc.W30.Paging.getNoOfPages()}}</h6>
+                            </div>
+                            <div class="col-lg-1 text-left">                                
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W30.Paging.showPrevious()" ng-click="dbc.W30.Paging.Previous(dbc.W30);"> <i class="fa fa-angle-left"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W30.Paging.showNext()" ng-click="dbc.W30.Paging.Next(dbc.W30);"> <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        </div>                         
+                    </div>
+                    <!-- /.panel-body -->
+                </div>                
+                <div class="panel panel-default">
+                    <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Warranties expiring within 60 days
                         <div class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-notify" ng-click="">Notify</button>
+                            <button class="btn btn-primary btn-xs btn-notify" ng-click="dbc.notify60D();">Notify</button>
                         </div>
                     </div>
                     <!-- /.panel-heading -->
@@ -157,23 +206,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 <tr ng-repeat="w in dbc.W60.data2show">
+                                 <tr ng-repeat="w in dbc.W60.data2show track by $index">
                                     <td>{{$index+1}}</td>
                                      <td> {{w.custName}}</td>
                                      <td> {{w.prodSerial}}</td>
                                      <td> {{w.prodDesc}}</td>
                                      <td> {{w.expDate}}</td>
-                                     <td> {{w.acManName}}</td>
+                                     <td> {{w.acMan}}</td>
                                  </tr>
                             </tbody>
                         </table>
-                        <div class="row">
-                                <div class="col-lg-3 col-lg-offset-9 text-right">
-                                    Page {{dbc.W60.currPage+1}} of {{dbc.W60.noOfPages}}
-                                    <button class="btn btn-primary btn-xs" ng-show="dbc.W60.showPrev" ng-click="dbc.prevPage (dbc.W60);"> <i class="fa fa-angle-left"></i></button>
-                                    <button class="btn btn-primary btn-xs" ng-show="dbc.W60.showNext" ng-click="dbc.nextPage(dbc.W60);"> <i class="fa fa-angle-right"></i></button>
-                                </div>
-                        </div>                        
+                        <div class="row" ng-show="dbc.W60.Paging.pagingRequired();">
+                            <div class="col-lg-9 text-left">
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W60.Paging.showPrevious()" ng-click="dbc.W60.Paging.First(dbc.W60);"> <i class="fa fa-backward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W60.Paging.showNext()" ng-click="dbc.W60.Paging.Last(dbc.W60);"> <i class="fa fa-forward"></i></button>
+                            </div>                                                            
+                            <div class="col-lg-2 text-right" style="margin-top:-5px;">
+                                <h6>Page {{dbc.W90.Paging.getCurrentPage()}} of {{dbc.W90.Paging.getNoOfPages()}}</h6>
+                            </div>
+                            <div class="col-lg-1 text-left">                                
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W60.Paging.showPrevious()" ng-click="dbc.W60.Paging.Previous(dbc.W60);"> <i class="fa fa-angle-left"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W60.Paging.showNext()" ng-click="dbc.W60.Paging.Next(dbc.W60);"> <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        </div>                         
                     </div>
                     <!-- /.panel-body -->
                 </div>
@@ -183,7 +238,7 @@
                     <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Warranties expiring within 90 days
                         <div class="pull-right">
-                            <button class="btn btn-primary btn-xs btn-notify" ng-click="">Notify</button>
+                            <button class="btn btn-primary btn-xs btn-notify" ng-click="dbc.notifyD90();">Notify</button>
                         </div>
                     </div>
                     <!-- /.panel-heading -->
@@ -200,29 +255,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 <tr ng-repeat="w in dbc.W90.data2show">
+                                 <tr ng-repeat="w in dbc.W90.data2show track by $index ">
                                      <td>{{$index+1}}</td>
                                      <td> {{w.custName}}</td>
                                      <td> {{w.prodSerial}}</td>
                                      <td> {{w.prodDesc}}</td>
                                      <td> {{w.expDate}}</td>
-                                     <td> {{w.AcMan}}</td>
+                                     <td> {{w.acMan}}</td>
                                  </tr>
                             </tbody>
                         </table>
-                        <div class="row">
-                                <div class="col-lg-9 text-left">
-                                        <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showPrevious()" ng-click="dbc.W90.Paging.First(dbc.W90);"> <i class="fa fa-backward"></i></button>
-                                        <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showNext()" ng-click="dbc.W90.Paging.Last(dbc.W90);"> <i class="fa fa-forward"></i></button>
-                                </div>
-                                <div class="col-lg-2 text-right" style="margin-top:-5px;">
-                                    <h6>Page {{dbc.W90.Paging.getCurrentPage()}} of {{dbc.W90.Paging.getNoOfPages()}}</h6>
-                                </div>
-                                <div class="col-lg-1 text-left">                                
-                                    <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showPrevious()" ng-click="dbc.W90.Paging.Previous(dbc.W90);"> <i class="fa fa-angle-left"></i></button>
-                                    <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showNext()" ng-click="dbc.W90.Paging.Next(dbc.W90);"> <i class="fa fa-angle-right"></i></button>
-                                </div>
-                        </div>   
+                        <div class="row" ng-show="dbc.W90.Paging.pagingRequired();">
+                            <div class="col-lg-9 text-left">
+                                
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showPrevious()" ng-click="dbc.W90.Paging.First(dbc.W90);"> <i class="fa fa-backward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showNext()" ng-click="dbc.W90.Paging.Last(dbc.W90);"> <i class="fa fa-forward"></i></button>
+                            </div>                                                            
+                            <div class="col-lg-2 text-right" style="margin-top:-5px;">
+                                <h6>Page {{dbc.W90.Paging.getCurrentPage()}} of {{dbc.W90.Paging.getNoOfPages()}}</h6>
+                            </div>
+                            <div class="col-lg-1 text-left">                                
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showPrevious()" ng-click="dbc.W90.Paging.Previous(dbc.W90);"> <i class="fa fa-angle-left"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="dbc.W90.Paging.showNext()" ng-click="dbc.W90.Paging.Next(dbc.W90);"> <i class="fa fa-angle-right"></i></button>
+                            </div>
+                        </div>      
                     </div>
                     <!-- /.panel-body -->
                 </div>

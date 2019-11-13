@@ -1,8 +1,14 @@
 <?php
 
-    include  "Customer.class.php";
+spl_autoload_register(function($class) {
+    include $class . '.class.php';
+});
     $obj  = new Customer();
-    $custId = 11;
-    $msg = $obj->getCustomer("","*"," where custId =".  $custId,"");
-    echo $msg;
+    $obj->table = "x";
+    $msg = $obj->getCustomer("","*","","","");
+    //echo $msg;
+    $cust = json_decode($msg);
+    //print_r($cust);
+    $custData = json_decode($cust->data,true);
+    print_r($custData);
 ?>

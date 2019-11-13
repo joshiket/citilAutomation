@@ -91,6 +91,18 @@ app.config(function($routeProvider){
         controller : "certifiedProfessionalListController",
         controllerAs : "cplc",
         cache : false
+    })    
+    .when("/Certifications/new",{
+        templateUrl  : "Views/Certifications/new.php",
+        controller : "newCertificationController",
+        controllerAs : "ncc",
+        cache : false
+    })  
+    .when("/Certifications/list",{
+        templateUrl  : "Views/Certifications/list.php",
+        controller : "certificationListController",
+        controllerAs : "clc",
+        cache : false
     })          
     .otherwise({ redirectTo : '/'});
 
