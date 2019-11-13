@@ -48,7 +48,7 @@
         {
 			try 
 			{ 
-                $query = sprintf("SELECT distinct acManId, acMan, Email  FROM %s",$this->view);
+                $query = sprintf("SELECT distinct acManId, acMan, Email  FROM %s where acManId <> 4",$this->view);
 				$config  = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false);
 				$con = new PDO("mysql:host=localhost; dbname = wdbt;charset=utf8", "root" ,"root" ,$config);
 				$stmt = $con->prepare($query);
@@ -216,16 +216,16 @@
                 </body>
             </html";
             $mail->Body = $content;
-            //$mail->AddAddress("ketan_j@citilindia.com");
-            $mail->AddAddress($email);
+            $mail->AddAddress("ketan_j@citilindia.com");
+            //$mail->AddAddress($email);
             if($acMan == "Prafulla Patil")
             {
                 $mail->AddCC("sameer_b@citilindia.com");
             }
-            $mail->AddCC("kiran_k@citilindia.com");
-            $mail->AddCC("kiran_t@citilindia.com");
+            //$mail->AddCC("kiran_k@citilindia.com");
+            //$mail->AddCC("kiran_t@citilindia.com");
             //$mail->AddCC("rahul_c@citilindia.com");
-            $mail->AddCC("ketan_j@citilindia.com");
+            //$mail->AddCC("ketan_j@citilindia.com");
             if(!$mail->Send()) 
             {
                return true;
