@@ -6,6 +6,7 @@ app.controller("newCertificationController", function(dataService,alertService){
 	ncc.Certification.cprovId = "";
 	ncc.Certification.certiExam = "";
 	ncc.Certification.certiOn = "";
+	ncc.Certification.cerytiNotExpires = false;
 	ncc.Certification.certiValidTill = "";
 	ncc.Certification.action = "newCertification";
 	ncc.Certification.primaryKey = "certiId";
@@ -33,7 +34,8 @@ app.controller("newCertificationController", function(dataService,alertService){
 
 	ncc.getCertifiedProfessionals = function(){
 		console.log("Fetching Certified Professionals...");
-		//console.log(ncc.CertifiedProfessionals.fetchData);
+		console.log(ncc.CertifiedProfessionals.fetchData);
+		
 		var response = dataService.httpCall(ncc.CertifiedProfessionals.fetchData,"Models/CertifiedProfessional/CertifiedProfessionalDAO.php");
 		response.then(function(result){
             //console.log(result);

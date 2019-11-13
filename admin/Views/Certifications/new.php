@@ -69,9 +69,17 @@
                                         </div>                                           
                                     </div>
                                     <div class="col-lg-4 form-group">
+                                        <label class="Control-label">&nbsp;</label><br>
+                                        <label class="control-label"><input type="checkbox" ng-model="ncc.Certification.cerytiNotExpires" name="certiOn"> Does not expires  </label>                                                                                 
+                                                                                                                          
+                                        <div ng-messages="NCF.distInvoiceDate.$touched && NCF.distInvoiceDate.$error" style="color:maroon; text-transform: uppercase;" role="alert">
+                                            <div ng-message="required"><small><i class="fa fa-asterisk"></i> Distributor Invoice date is mandatory.</small></div>                                                               
+                                        </div>                                           
+                                    </div>                                    
+                                    <div class="col-lg-4 form-group" ng-show="! ncc.Certification.cerytiNotExpires">
                                         <label class="control-label">Valid Till</label> 
                                         <div class="input-group">
-                                             <input type="text" class="form-control dip" ng-model="ncc.Certification.certiValidTill" name="distInvoiceDate"  required>                                                                                  
+                                             <input type="text" class="form-control dip" ng-model="ncc.Certification.certiValidTill" name="distInvoiceDate"  >                                                                                  
                                              <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                         </div>
                                         <div ng-messages="NCF.distInvoiceDate.$touched && NCF.distInvoiceDate.$error" style="color:maroon; text-transform: uppercase;" role="alert">
