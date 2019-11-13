@@ -1,0 +1,58 @@
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-file-signature"></i> Certified Professionals</h3>
+                    <h6><a href="#/">Dashboard</a> |  <a href="#/customers/list">OEM Certificataions</a> |<a href="#/CertifiedProfessionals/list"> Certified Professionals</a> | New Certified Professional</h6>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-file-signature fa-fw"></i> New Certified Professional
+                            
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">                                
+                                <form name="ncpForm">
+                                    <label class="control-label">Certified Professional </label>
+                                    <input type="text"  name="cprofName" class="form-control" placeholder="Certification Provider Name" ng-model="ncpc.CertifiedProfessional.cprofName" required autofocus>
+                                    <div ng-messages="ncpForm.cprofName.$touched && ncpForm.cprofName.$error" style="color:maroon; text-transform: uppercase;" role="alert">
+                                        <div ng-message="required"><small><i class="fa fa-asterisk"></i> Certified Professional is mandatory.</small></div>                                                               
+                                    </div>                                     
+                                </form>
+                            </div>
+                        </div>   
+                        <div class="row" stnyle="margin: 5px 0px 5px 0px;">
+                            <div class=col-lg-12 ng-show="ncpc.alerts.isComplete()">
+                                <div class="alert alert-success" ng-show="ncpc.alerts.isComplete() && !ncpc.alerts.hasError()">
+                                    <i class="fa fa-check-circle"></i> {{ncpc.alerts.getMessage()}}
+                                </div>
+                                <div class="alert alert-success" ng-show="ncpc.alerts.isComplete() && ncpc.alerts.hasError()">
+                                    <i class="fa fa-exclamation-triangle"></i> {{ncpc.alerts.getMessage()}}
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.panel-body -->
+                    <div class="panel-footer">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-3 col-lg-offset-9">                                            
+                                    <button class="btn btn-primary" ng-show="ncpForm.$valid" ng-click="ncpc.newCertifiedProfessional();">Save</button>                                                        
+                                </div>
+                            </div>                                                    
+                        </div>                         
+                    </div>                    
+                </div>
+            </div>            
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->

@@ -1,0 +1,6 @@
+select `vwwarranty`.`custName` AS `custName`,`vwwarranty`.`prodSerial` AS `prodSerial`,`vwwarranty`.`warrExpDate` AS `warrExpDate` ,now() AS `Today`,(now() + interval 90 day) AS `DATE_ADD(NOW(), INTERVAL 90 DAY)` from `vwwarranty`
+where (`vwwarranty`.`warrExpDate` between now() and (now() + interval 90 day))
+
+select W.custName AS `custName`,W.prodSerial AS `prodSerial`,W.prodDesc as `prodDesc`, DATE_FORMAT(w.warrExpDate,"%d-%m-%Y") AS `warrExpDate` ,C.acManName as `Manager`, now() AS `Today`,(now() + interval 90 day) AS `DATE_ADD(NOW(), INTERVAL 90 DAY)` from vwwarranty as W, vwcustomermanager as C where ((W.warrExpDate between now() and (now() + interval 90 day))and c.custId=w.custId )
+
+DATE_FORMAT("2017-06-15", "%d-%m-%Y")

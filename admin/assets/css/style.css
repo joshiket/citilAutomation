@@ -1,0 +1,19 @@
+.panel-heading{
+    background: #007db8 !important;
+    color: #FFF !important;
+}
+.btn-notify
+{
+    background: #ffffff !important;
+    color:#000 !important;
+}
+.paging-text
+{
+    font-size:14px;
+    font-family: arial;
+    font-weight:500;
+}
+.panel-default
+{
+    border-bottom: #007db8 solid 3px !important;
+}
