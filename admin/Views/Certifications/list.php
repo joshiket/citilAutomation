@@ -33,10 +33,12 @@
                             <thead>
                                 <tr style="font-weight:bold;">
                                     <td>Sr.no.</td>
-                                    <td>Certified Professional</td> 
-                                    <td>Certification Provider</td>
+                                    <td>Professional</td> 
+                                    <td>Provider</td>
                                     <td>Exam</td>
+                                    <td>Exam Desc. </td>
                                     <td>Certified On</td>
+                                    <td>Expires </td>
                                     <td>Valid Through</td>
                                     <td>Expired</td>
                                     <td></td>
@@ -48,9 +50,11 @@
                                     <td> {{c.cprofName}}</td>
                                     <td> {{c.cprovName}} </td>
                                     <td> {{c.certiExam}} </td>
+                                    <td> {{c.certiExamDesc}}</td>
                                     <td> {{c.certifiedOn}}</td>
+                                    <td> {{(c.cerytiExpires == "y")? "Yes": "No"}}</td>
                                     <td> {{c.validTill}}</td>
-                                    <td> {{(c.Expired == 0)? "No" : "Yes" }}</td>
+                                    <td> {{(c.Expired == 1)? "Yes" : "No" }}</td>
                                     <td> 
                                         <a href="#/managers/update/{{m.acManId}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
                                         <a href="#/managers/details/{{m.acManId}}" class="btn btn-info btn-xs"><i class="fa fa-list"></i></a>
@@ -59,17 +63,17 @@
                                  </tr>
                             </tbody>
                         </table>
-                        <div class="row" ng-show="clc.Paging.pageRequired">
+                        <div class="row" ng-show="clc.Paging.pagingRequired()">
                             <div class="col-lg-9 text-left">
-                                <button class="btn btn-primary btn-xs" ng-show="wrlc.Paging.showPrevious()" ng-click="wrlc.Paging.First(wrlc.Warranty);"> <i class="fa fa-backward"></i></button>
-                                <button class="btn btn-primary btn-xs" ng-show="wrlc.Paging.showNext()" ng-click="wrlc.Paging.Last(wrlc.Warranty);"> <i class="fa fa-forward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showPrevious()" ng-click="clc.Paging.First(wrlc.Warranty);"> <i class="fa fa-backward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showNext()" ng-click="clc.Paging.Last(wrlc.Warranty);"> <i class="fa fa-forward"></i></button>
                             </div>                             
                             <div class="col-lg-2 text-right" style="margin-top:-5px;">
-                                <h6>Page {{wrlc.Paging.getCurrentPage()}} of {{wrlc.Paging.getNoOfPages()}}</h6>
+                                <h6>Page {{clc.Paging.getCurrentPage()}} of {{clc.Paging.getNoOfPages()}}</h6>
                             </div>
                             <div class="col-lg-1 text-left">                                
-                                <button class="btn btn-primary btn-xs" ng-show="wrlc.Paging.showPrevious()" ng-click="wrlc.Paging.Previous(wrlc.Warranty);"> <i class="fa fa-angle-left"></i></button>
-                                <button class="btn btn-primary btn-xs" ng-show="wrlc.Paging.showNext()" ng-click="wrlc.Paging.Next(wrlc.Warranty);"> <i class="fa fa-angle-right"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showPrevious()" ng-click="clc.Paging.Previous(wrlc.Warranty);"> <i class="fa fa-angle-left"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showNext()" ng-click="clc.Paging.Next(wrlc.Warranty);"> <i class="fa fa-angle-right"></i></button>
                             </div>
                         </div>                        
                     </div>

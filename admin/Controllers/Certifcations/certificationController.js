@@ -5,9 +5,10 @@ app.controller("newCertificationController", function(dataService,alertService){
 	ncc.Certification.cprofId = "";
 	ncc.Certification.cprovId = "";
 	ncc.Certification.certiExam = "";
+	ncc.Certification.certiExamDesc = "";
 	ncc.Certification.certiOn = "";
-	ncc.Certification.cerytiNotExpires = false;
-	ncc.Certification.certiValidTill = "";
+	ncc.Certification.certiExpires = false;
+	ncc.Certification.certiValidTill = null;
 	ncc.Certification.action = "newCertification";
 	ncc.Certification.primaryKey = "certiId";
 
@@ -85,12 +86,18 @@ app.controller("newCertificationController", function(dataService,alertService){
 		var rtDate = dtArr[2] + "-" + dtArr[1] + "-" + dtArr[0];
 		return rtDate;
 	};
-    
+	
+
     
     ncc.newCertification = function(){
 		console.log("Saving Certification...");
 		ncc.Certification.certiOn = ncc.changeDateFormat(ncc.Certification.certiOn);
-		ncc.Certification.certiValidTill = ncc.changeDateFormat(ncc.Certification.certiValidTill);
+		alert(ncc.Certification.certiExpires);
+		if(ncc.Certification.certiExpires == true)
+			ncc.Certification.certiValidTill = ncc.changeDateFormat(ncc.Certification.certiValidTill);
+		else
+			ncc.Certification.certiValidTill = null;
+		ncc.Certification.certiExpires = (ncc.Certification.certiExpires == true) ? "y" : "n";
 		console.log(ncc.Certification);
 
 		var response = dataService.httpCall(ncc.Certification,"Models/Certification/CertificationDAO.php");		

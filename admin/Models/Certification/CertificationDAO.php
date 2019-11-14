@@ -144,9 +144,17 @@
 			$cprofId = $this->fetchData("cprofId");
 			$cprovId = $this->fetchData("cprovId");
 			$certiExam = $this->fetchData("certiExam");
+			$certiExamDesc = $this->fetchData("certiExamDesc");
 			$certiOn = $this->fetchData("certiOn");
 			$certiValidTill = $this->fetchData("certiValidTill");
-			if( $cprofId == NULL ||  $cprovId == NULL ||  $certiExam == NULL ||  $certiOn == NULL ||  $certiValidTill == NULL  )
+			$certiExpires = $this->fetchData("certiExpires");
+			//$msg = "$cprofId == NULL ||  $cprovId == NULL ||  $certiExam == NULL || $certiExamDesc == NULL ||$certiOn == NULL ||  $cerytiExpires == NULL";
+			//$ds = "cprofId = " . $cprofId . ", cprovId = ".$cprovId. ", certiExam = ".$certiExam . ", certiExamDesc = ".$certiExamDesc.", certiOn = ".$certiOn.", certiExpires = " .$cerytiExpires;
+			//return $ds;
+			//$ds = (( $cprofId == NULL ||  $cprovId == NULL ||  $certiExam == NULL || $certiExamDesc == NULL ||$certiOn == NULL ||  $certiExpires == NULL )==true) ? 'err' : 'no err';
+			//return ($certiExpires == NULL);
+			
+			if( $cprofId == NULL ||  $cprovId == NULL ||  $certiExam == NULL || $certiExamDesc == NULL ||$certiOn == NULL ||  $certiExpires == NULL )
 			{
 				$msg = $this->RANS();
 			}
@@ -157,8 +165,13 @@
 				$obj->cprofId= $cprofId;
 				$obj->cprovId= $cprovId;
 				$obj->certiExam= $certiExam;
+				$obj->certiExamDesc = $certiExamDesc;
 				$obj->certiOn= $certiOn;
-				$obj->certiValidTill= $certiValidTill;
+				if($certiExpires == "n")
+					$obj->certiValidTill= NULL;
+				else
+					$obj->certiValidTill= $certiValidTill;				
+				$obj->certiExpires = $certiExpires;
 				$msg = $obj->newCertification();
 			}
 			return $msg;

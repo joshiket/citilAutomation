@@ -36,13 +36,12 @@
                                 </div>
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label">Certification Provider</label>                                     
-                                    <input type="text" list="cProvList" class="form-control" ng-model="ncc.Certification.cprovId" name="cprovId" ng-pattern="/^[1-9]{0,9}$/"  required>                                                                           
+                                    <input type="text" list="cProvList" class="form-control" ng-model="ncc.Certification.cprovId" name="cprovId"   required>                                                                           
                                     <datalist id="cProvList">
                                         <option ng-repeat="cp in ncc.CertificationProviders.data" value="{{cp.cprovId}}"> {{cp.cprovName}}
                                     </datalist>  
                                     <div ng-messages="NCF.cprovId.$touched && NCF.cprovId.$error" style="color:maroon; text-transform: uppercase;" role="alert">
-                                        <div ng-message="required"><small><i class="fa fa-asterisk"></i> Certification Provider is mandatory.</small></div>       
-                                        <div ng-message="pattern"><small><i class="fa fa-asterisk"></i> Numeric value Expected.</small></div>                                                        
+                                        <div ng-message="required"><small><i class="fa fa-asterisk"></i> Certification Provider is mandatory.</small></div>                                                                                             
                                     </div>                                                                        
                                 </div>     
                                 <div class="col-lg-4 form-group">
@@ -58,25 +57,31 @@
                                 </div>                       
                             </div>
                             <div class="row">
-                                    <div class="col-lg-4 form-group">
+                                <div class="col-lg-4 form-group">
+                                    <label class="control-label">Exam description</label> 
+                                    <input type="text" class="form-control" ng-model="ncc.Certification.certiExamDesc" name="certiExamDesc" >                                                                        
+                                </div>                             
+                                <div class="col-lg-4 form-group">
                                         <label class="control-label">Certified on</label>                                         
                                         <div class="input-group">
                                              <input type="text" class="form-control dip" ng-model="ncc.Certification.certiOn" name="certiOn"  required>                                     
                                              <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                         </div>
                                         <div ng-messages="NCF.distInvoiceDate.$touched && NCF.distInvoiceDate.$error" style="color:maroon; text-transform: uppercase;" role="alert">
-                                            <div ng-message="required"><small><i class="fa fa-asterisk"></i> Distributor Invoice date is mandatory.</small></div>                                                               
+                                            <div ng-message="required"><small><i class="fa fa-asterisk"></i>  Certified on date is mandatory.</small></div>                                                               
                                         </div>                                           
-                                    </div>
-                                    <div class="col-lg-4 form-group">
+                                </div>
+                                <div class="col-lg-4 form-group">
                                         <label class="Control-label">&nbsp;</label><br>
-                                        <label class="control-label"><input type="checkbox" ng-model="ncc.Certification.cerytiNotExpires" name="certiOn"> Does not expires  </label>                                                                                 
+                                        <label class="control-label"><input type="checkbox" ng-model="ncc.Certification.cerytiExpires" name="cerytiExpires"> Expires  </label>                                                                                 
                                                                                                                           
                                         <div ng-messages="NCF.distInvoiceDate.$touched && NCF.distInvoiceDate.$error" style="color:maroon; text-transform: uppercase;" role="alert">
                                             <div ng-message="required"><small><i class="fa fa-asterisk"></i> Distributor Invoice date is mandatory.</small></div>                                                               
                                         </div>                                           
-                                    </div>                                    
-                                    <div class="col-lg-4 form-group" ng-show="! ncc.Certification.cerytiNotExpires">
+                                </div>                                                             
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4 form-group" ng-show="ncc.Certification.cerytiExpires">
                                         <label class="control-label">Valid Till</label> 
                                         <div class="input-group">
                                              <input type="text" class="form-control dip" ng-model="ncc.Certification.certiValidTill" name="distInvoiceDate"  >                                                                                  
@@ -85,8 +90,8 @@
                                         <div ng-messages="NCF.distInvoiceDate.$touched && NCF.distInvoiceDate.$error" style="color:maroon; text-transform: uppercase;" role="alert">
                                             <div ng-message="required"><small><i class="fa fa-asterisk"></i> Distributor Invoice date is mandatory.</small></div>                                                               
                                         </div>                                           
-                                    </div>                           
-                            </div>      
+                                </div>                             
+                            </div>     
                             <div class="row" stnyle="margin: 5px 0px 5px 0px;">
                                 <div class=col-lg-12 ng-show="ncc.alerts.isComplete()">
                                     <div class="alert alert-success" ng-show="ncc.alerts.isComplete() && !ncc.alerts.hasError()">

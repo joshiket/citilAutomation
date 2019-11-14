@@ -33,7 +33,7 @@
 
 		public function __set($property, $value) 
 		{
-			if($property == "certiId" || $property == "cprofId" || $property == "cprovId" || $property == "certiExam" || $property == "certiOn" || $property == "certiValidTill" )
+			if($property == "certiId" || $property == "cprofId" || $property == "cprovId" || $property == "certiExam" || $property == "certiExamDesc" || $property == "certiOn" || $property == "certiValidTill" || $property == "cerytiExpires")
 			{
 				$this->data[$property] = $value;
 			}
@@ -119,7 +119,14 @@
 
 		public function newCertification()
 		{
-			$query = sprintf("INSERT INTO %s (cprofId,cprovId,certiExam,certiOn,certiValidTill) VALUES(%d,%d,'%s','%s','%s' )",$this->table,$this->data['cprofId'],$this->data['cprovId'],$this->data['certiExam'],$this->data['certiOn'],$this->data['certiValidTill']); 
+			
+			if($this->certiValidTill == "")		
+			{		
+				$query = sprintf("INSERT INTO %s (cprofId,cprovId,certiExam, certiExamDesc,certiOn,certiValidTill, cerytiExpires) VALUES(%d,%d,'%s','%s','%s',NULL,'%s')",$this->table,$this->data['cprofId'],$this->data['cprovId'],$this->data['certiExam'],$this->certiExamDesc ,$this->data['certiOn'],$this->cerytiNotExpires); 
+			}
+			else
+				$query = sprintf("INSERT INTO %s (cprofId,cprovId,certiExam, certiExamDesc,certiOn,certiValidTill, cerytiExpires) VALUES(%d,%d,'%s','%s','%s','%s','%s')",$this->table,$this->data['cprofId'],$this->data['cprovId'],$this->data['certiExam'],$this->certiExamDesc ,$this->data['certiOn'],$this->certiValidTill,$this->cerytiNotExpires); 
+			
 			//return $query;
 			try 
 			{ 
