@@ -13,8 +13,8 @@
 
 		public function __construct()
 		{
-			$this->dbArr=parse_ini_file('../db.ini');
-			$this->messages=parse_ini_file('Certification_msg.ini');
+			$this->dbArr = parse_ini_file('../db.ini');
+			$this->messages = parse_ini_file('Certification_msg.ini');
 			$this->table = "wdbt.tblCertifications";
 			$this->child = "";
 			$this->view = "wdbt.vwCertifications";

@@ -63,17 +63,17 @@
                                  </tr>
                             </tbody>
                         </table>
-                        <div class="row" ng-show="clc.Paging.pagingRequired()">
+                        <div class="row" ng-show="clc.Certifications.Paging.pagingRequired()">
                             <div class="col-lg-9 text-left">
-                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showPrevious()" ng-click="clc.Paging.First(wrlc.Warranty);"> <i class="fa fa-backward"></i></button>
-                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showNext()" ng-click="clc.Paging.Last(wrlc.Warranty);"> <i class="fa fa-forward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Certifications.Paging.showPrevious()" ng-click="clc.Certifications.Paging.First(clc.Certifications);"> <i class="fa fa-backward"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Certifications.Paging.showNext()" ng-click="clc.Certifications.Paging.Last(clc.Certifications);"> <i class="fa fa-forward"></i></button>
                             </div>                             
                             <div class="col-lg-2 text-right" style="margin-top:-5px;">
-                                <h6>Page {{clc.Paging.getCurrentPage()}} of {{clc.Paging.getNoOfPages()}}</h6>
+                                <h6>Page {{clc.Certifications.Paging.getCurrentPage()}} of {{clc.Certifications.Paging.getNoOfPages()}}</h6>
                             </div>
                             <div class="col-lg-1 text-left">                                
-                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showPrevious()" ng-click="clc.Paging.Previous(wrlc.Warranty);"> <i class="fa fa-angle-left"></i></button>
-                                <button class="btn btn-primary btn-xs" ng-show="clc.Paging.showNext()" ng-click="clc.Paging.Next(wrlc.Warranty);"> <i class="fa fa-angle-right"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Certifications.Paging.showPrevious()" ng-click="clc.Certifications.Paging.Previous(clc.Certifications);"> <i class="fa fa-angle-left"></i></button>
+                                <button class="btn btn-primary btn-xs" ng-show="clc.Certifications.Paging.showNext()" ng-click="clc.Certifications.Paging.Next(clc.Certifications);"> <i class="fa fa-angle-right"></i></button>
                             </div>
                         </div>                        
                     </div>

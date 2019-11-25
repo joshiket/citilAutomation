@@ -147,7 +147,8 @@ app.controller("certificationListController", function(dataService,alertService,
                 clc.Certifications.Paging.init(clc.Certifications);
                 console.log("Fetching OEM Certifications - success");
                 console.log(clc.Certifications.data.length + " record(s) fetched.");
-                console.log(clc.Certifications.data2show);
+				console.log(clc.Certifications.data2show);
+				
             }
             else
             {
