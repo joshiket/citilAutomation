@@ -42,9 +42,15 @@
                                     <td> {{$index+1}}</td> 
                                     <td> {{d.distName}}</td>
                                     <td> 
-                                        <a href="#/distributors/update/{{c.custId}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
-                                        <a href="#/distributors/details/{{c.custId}}" class="btn btn-info btn-xs"><i class="fa fa-list"></i></a>
-                                        <a href="#/distributors/delete/{{c.custId}}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                        <div class="dropdown">
+                                                    <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <span class="caret"></span></button>
+                                                    <ul class="dropdown-menu" style="min-width:80px !important;">
+                                                        <li><a class="btn btn-success btn-xs" href="#/managers/update/{{d.distId}}"><i class="fa fa-edit"></i></a></li>
+                                                        <li><a class="btn btn-info btn-xs" href="#/managers/details/{{d.distId}}"><i class="fa fa-list"></i></a></li>
+                                                        <li><a class="btn btn-danger btn-xs" href="#/managers/delete/{{d.distId}}"><i class="fa fa-trash"></i></a></li>
+                                                    </ul>
+                                        </div>                                         
                                     </td>
                                  </tr>
                             </tbody>
