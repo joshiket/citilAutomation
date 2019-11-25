@@ -56,9 +56,15 @@
                                     <td> {{w.expDate}}</td>
                                     <td> {{w.acManName}}</td>
                                     <td> 
-                                        <a href="#/managers/update/{{m.acManId}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
-                                        <a href="#/managers/details/{{m.acManId}}" class="btn btn-info btn-xs"><i class="fa fa-list"></i></a>
-                                        <a href="#/managers/delete/{{m.acManId}}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                        <div class="dropdown">
+                                            <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                                            <span class="caret"></span></button>
+                                            <ul class="dropdown-menu" style="min-width:60px !important;">
+                                                <li><a class="btn btn-success btn-xs" href="#/WarrantyRecords/update/{{w.warrId}}"><i class="fa fa-edit"></i></a></li>
+                                                <li><a class="btn btn-info btn-xs" href="#/WarrantyRecords/details/{{w.warrId}}"><i class="fa fa-list"></i></a></li>
+                                                <li><a class="btn btn-danger btn-xs" href="#/WarrantyRecords/delete/{{w.warrId}}"><i class="fa fa-trash"></i></a></li>
+                                            </ul>
+                                        </div>                                                                                 
                                     </td>
                                  </tr>
                             </tbody>
