@@ -103,6 +103,24 @@ app.config(function($routeProvider){
         controller : "certificationListController",
         controllerAs : "clc",
         cache : false
+    })    
+    .when("/CutomerBranches/new",{
+        templateUrl  : "Views/Branches/new.php",
+        controller : "newCustomerBranchController",
+        controllerAs : "ncbc",
+        cache : false
+    })            
+    .when("/CutomerBranches/add",{
+        templateUrl  : "Views/Branches/add.php",
+        controller : "addCustomerBranchController",
+        controllerAs : "acbc",
+        cache : false
+    })   
+    .when("/CutomerBranches/list",{
+        templateUrl  : "Views/Branches/list.php",
+        controller : "customerBranchListController",
+        controllerAs : "cblc",
+        cache : false
     })          
     .otherwise({ redirectTo : '/'});
 

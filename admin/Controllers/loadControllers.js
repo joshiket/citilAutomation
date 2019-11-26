@@ -18,6 +18,7 @@ function init()
     addScript("Controllers/CertificationProviders/certificationProviderController.js");
     addScript("Controllers/CertifiedProfessionals/certifiedProfessionalController.js");
     addScript("Controllers/Certifcations/certificationController.js");
+    addScript("Controllers/Branches/branchesController.js");
     alert("Initialised");
 }    
 

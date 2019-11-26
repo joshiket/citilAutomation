@@ -135,6 +135,19 @@
                             </tbody>
                         </table>
                     </div>
+                    <div class="row" ng-show="dbc.W5.data.length>=15">
+                        <div class="col-lg-9 text-left">
+                            <button class="btn btn-primary btn-xs" ng-show="dbc.W5.Paging.showPrevious()" ng-click="dbc.W5.Paging.First(dbc.W5);"> <i class="fa fa-backward"></i></button>
+                            <button class="btn btn-primary btn-xs" ng-show="dbc.W5.Paging.showNext()" ng-click="dbc.W5.Paging.Last(dbc.W5);"> <i class="fa fa-forward"></i></button>                                
+                        </div>                                                            
+                        <div class="col-lg-2 text-right" style="margin-top:-5px;">
+                            <h6>Page {{dbc.W5.Paging.getCurrentPage()}} of {{dbc.W5.Paging.getNoOfPages()}}</h6>
+                        </div>
+                        <div class="col-lg-1 text-left">                                
+                            <button class="btn btn-primary btn-xs" ng-show="dbc.W5.Paging.showPrevious()" ng-click="dbc.W5.Paging.Previous(dbc.W5);"> <i class="fa fa-angle-left"></i></button>
+                            <button class="btn btn-primary btn-xs" ng-show="dbc.W5.Paging.showNext()" ng-click="dbc.W5.Paging.Next(dbc.W5);"> <i class="fa fa-angle-right"></i></button>
+                        </div>
+                    </div>                      
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->

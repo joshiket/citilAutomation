@@ -96,6 +96,15 @@
                                     <li>
                                         <a href="#/customers/list">Manage Customers</a>
                                     </li>
+                                    <li>
+                                        <a href="#/CutomerBranches/new">New Customer Branch</a>
+                                    </li>
+                                    <li>
+                                        <a href="#/CutomerBranches/add">Add Customer Branch</a>
+                                    </li>      
+                                    <li>
+                                        <a href="#/CutomerBranches/list">Mange Customer Branches</a>
+                                    </li>                                                                                                       
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
