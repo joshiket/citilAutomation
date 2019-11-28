@@ -103,7 +103,7 @@
                                         <a href="#/CutomerBranches/add">Add Customer Branch</a>
                                     </li>      
                                     <li>
-                                        <a href="#/CutomerBranches/list">Mange Customer Branches</a>
+                                        <a href="#/CutomerBranches/list">Manage Customer Branches</a>
                                     </li>                                                                                                       
                                 </ul>
                                 <!-- /.nav-second-level -->
