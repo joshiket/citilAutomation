@@ -111,6 +111,7 @@ app.controller("newWarrantyRecordController", function(dataService, alertService
         console.log("initialising ...");
         nwrc.getCustomers();
         nwrc.getDistributors();        
+        document.forms[0].elements[0].focus();
     };
     nwrc.init();
 });

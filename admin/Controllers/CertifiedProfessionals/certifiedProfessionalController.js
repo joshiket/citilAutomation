@@ -22,7 +22,8 @@ app.controller("newCertifiedProfessionalController", function(dataService,alertS
 
     ncpc.init = function(){ 
         console.clear();
-        console.log("initialising ...");
+		console.log("initialising ...");
+		document.forms[0].elements[0].focus();
     };
     ncpc.init();
 

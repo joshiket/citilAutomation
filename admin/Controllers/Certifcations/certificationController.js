@@ -117,7 +117,8 @@ app.controller("newCertificationController", function(dataService,alertService){
         console.clear();
         console.log("initialising ...");
         ncc.getCertifiedProfessionals();        
-        ncc.getCertificationProviders();
+		ncc.getCertificationProviders();
+		document.forms[0].elements[0].focus();
     };
      ncc.init();
     
@@ -140,7 +141,7 @@ app.controller("certificationListController", function(dataService,alertService,
 		response.then(function(result){
             //console.log(result);
             var data = result.data;
-            //console.log(data);
+            console.log(data);
             if(!data.error)
             {
                 clc.Certifications.data = angular.fromJson(data.data);

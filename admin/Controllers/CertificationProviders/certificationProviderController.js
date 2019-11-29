@@ -27,6 +27,7 @@ app.controller("newCertificationProviderController", function(dataService, alert
         console.clear();
         console.log("initialising ...");
         ncpc.alerts.init(false,false,"");
+        document.forms[0].elements[0].focus();
     };
     ncpc.init();
 });

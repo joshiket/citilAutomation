@@ -1,6 +1,6 @@
 <?php
 
-    $file = fopen("arihant.csv","r");
+    $file = fopen("resources/newWarranties.csv","r");
     //$wData = fgetcsv($file, 10000, ",");
     //print_r($wData);
     $c = 0;
@@ -42,18 +42,19 @@
                 */
 
                 $query = "Insert into wdbt.tblwarranty VALUES(NULL,";
-                $query .= "'" .$wData[0] . "', ";
-                $query .= "'" .$wData[1] . "', ";
-                $query .= "'" .$wData[2] . "', ";
-                $query .= "'" .$wData[3] . "', ";
-                $query .= "'" .$wData[4] . "', ";
-                $query .= "'" .$wData[5] . "', ";
-                $query .= "'" .$wData[6] . "', ";   
-                $query .= "'" .$wData[7] . "', ";        
-                $query .= "'" .$wData[8] . "', ";
-                $query .= "'" .$wData[9] . "', ";            
-                $query .= "" .$wData[10] . ", ";
-                $query .= "'" .$wData[11]. "') ";               
+                $query .= "'" .$wData[0] . "', "; //citilInvoiceNo
+                $query .= "'" .$wData[1] . "', "; //citilInvoiceDate
+                $query .= "'" .$wData[2] . "', "; //custId
+                $query .= "'" .$wData[3] . "', "; //branchId
+                $query .= "'" .$wData[4] . "', "; //prodNo
+                $query .= "'" .$wData[5] . "', "; //prodDesc
+                $query .= "'" .$wData[6] . "', "; //podSeial
+                $query .= "'" .$wData[7] . "', "; //prodQty       
+                $query .= "'" .$wData[8] . "', "; //distId
+                $query .= "'" .$wData[9] . "', "; //distInvoiceNo      
+                $query .= "'" .$wData[10] . "', ";  //distInvoiceDate
+                $query .= "'" .$wData[11]. "', "; //warrExYears               
+                $query .= "'" .$wData[12]. "') "; //warrExpDate
                 echo $query . "<br><br>";
                 $stmt = $con->prepare($query);
                 $stmt->execute();
