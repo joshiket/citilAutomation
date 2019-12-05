@@ -38,15 +38,13 @@ app.controller("newWarrantyRecordController", function(dataService, alertService
     
     nwrc.addToDate = function()
     {        
-        var d = nwrc.Warranty.distInvoiceDate;
-        var dtArr = d.split("-");
-
-        dtArr[2] = parseInt(dtArr[2]);
-        var nd = new Date(dtArr[2],dtArr[1]-1,dtArr[0]);
-        //console.log(nd.getFullYear());
-        var y = nd.getFullYear() + parseInt(nwrc.Warranty.warrExYears);
-        dtArr[2] = y;
-        nwrc.Warranty.warrExpDate = dtArr[0] + "-" + dtArr[1] + "-"+ dtArr[2];
+        var invDt = nwrc.Warranty.distInvoiceDate;
+        var expDt = invDt.split("-")[1] + "/" + invDt.split("-")[0] + "/" + invDt.split("-")[2];
+        expDt = new Date(invDt.split("-")[2],invDt.split("-")[1]-1,invDt.split("-")[0]);       
+        console.log("days = " + (365 * parseInt(nwrc.Warranty.warrExYears)));
+        expDt.setDate(expDt.getDate() + (365 * parseInt(nwrc.Warranty.warrExYears)));
+        expDt = expDt.getDate() + "-" + (expDt.getMonth()+1) + "-" + expDt.getFullYear();
+        nwrc.Warranty.warrExpDate = expDt;
     }
 
     nwrc.convertDate= function(d)

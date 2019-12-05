@@ -136,8 +136,8 @@ app.controller("addCustomerBranchController", function(alertService,dataService)
 app.controller("customerBranchListController", function(dataService,pageService){
 	var cblc = this;
 	cblc.CustomerBranches = {};
-	cblc.CutomerBranches.fetchData = {};
-	CustomerBranches.fetchData.primaryKey = "custBranchId";
+	cblc.CustomerBranches.fetchData = {};
+	cblc.CustomerBranches.fetchData.primaryKey = "custBranchId";
 	cblc.CustomerBranches.fetchData.action = "getAllCustomerBranches";
 	cblc.CustomerBranches.data = [];
 	cblc.CustomerBranches.data2show = [];
@@ -146,7 +146,7 @@ app.controller("customerBranchListController", function(dataService,pageService)
 	cblc.getCustomerBranches = function(){
 		console.log("Fetching Customer Branches...");
 		//console.log(cblc.CutomerBranches.fetchData);
-		var response = dataService.httpCall(cblc.CutomerBranches.fetchData,"MOdels/CustomerBranch/CustomerBranchDAO.php");
+		var response = dataService.httpCall(cblc.CustomerBranches.fetchData,"MOdels/CustomerBranch/CustomerBranchDAO.php");
 		response.then(function(result){
 			//console.log(result);
 			var data= result.data;
@@ -156,6 +156,7 @@ app.controller("customerBranchListController", function(dataService,pageService)
 				console.log("Fetching Customer Branches - success");
 				console.log("Fetched " + cblc.CustomerBranches.data.length + " record(s).");
 				cblc.Paging.init(cblc.CustomerBranches);
+				console.log(cblc.CustomerBranches.data2show);
 			}
 			else
 			{
@@ -166,6 +167,15 @@ app.controller("customerBranchListController", function(dataService,pageService)
 			alert(angular.toJson(result));
 		});
 	};
+
+	cblc.init = function(){ 
+		console.clear();
+		console.log("initialising ...");
+		cblc.getCustomerBranches();
+	};
+	 cblc.init();
+
+
 
 
 });

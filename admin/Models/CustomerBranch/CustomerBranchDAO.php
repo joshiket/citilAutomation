@@ -66,7 +66,7 @@
 		public function getAllCustomerBranches()
 		{
 			$obj = new CustomerBranch();
-			$msg = $obj->getCustomerBranch("*","","","");
+			$msg = $obj->getCustomerBranch("*",""," order by custName","",false);
 			return $msg;
 		}//getAllCustomerBranches()
 

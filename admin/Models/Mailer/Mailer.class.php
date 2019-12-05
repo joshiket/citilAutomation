@@ -1,5 +1,8 @@
 <?php
+    require 'vendor/autoload.php';
 
+    use PhpOffice\PhpSpreadsheet\Spreadsheet;
+    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -216,15 +219,15 @@
                 </body>
             </html";
             $mail->Body = $content;
-            $mail->AddAddress("ketan_j@citilindia.com");
-            //$mail->AddAddress($email);
+            //$mail->AddAddress("ketan_j@citilindia.com");
+            $mail->AddAddress($email);
             if($acMan == "Prafulla Patil")
             {
                 $mail->AddCC("sameer_b@citilindia.com");
             }
-            //$mail->AddCC("kiran_k@citilindia.com");
-            //$mail->AddCC("kiran_t@citilindia.com");
-            //$mail->AddCC("rahul_c@citilindia.com");
+            $mail->AddCC("kiran_k@citilindia.com");
+            $mail->AddCC("kiran_t@citilindia.com");
+            $mail->AddCC("rahul_c@citilindia.com");
             //$mail->AddCC("ketan_j@citilindia.com");
             if(!$mail->Send()) 
             {
