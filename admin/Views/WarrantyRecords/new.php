@@ -33,7 +33,7 @@
                                 <div class="col-lg-4 form-group">
                                     <label class="control-label">CITIL Invoice date</label> 
                                     <div class="input-group">
-                                        <input type="text" class="form-control dip" ng-model="nwrc.Warranty.citilInvoiceDate" name="citilInvoiceDate"  required>                                    
+                                        <input type="text" class="form-control dip" ng-model="nwrc.Warranty.citilInvoiceDate" name="citilInvoiceDate"  placeholder="dd-mm-yyyy" required>                                    
                                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                                         <div ng-messages="NWRF.citilInvoiceDate.$touched && NWRF.citilInvoiceDate.$error" style="color:maroon; text-transform: uppercase;" role="alert">
                                              <div ng-message="required"><small><i class="fa fa-asterisk"></i> CITIL Invoice date is mandatory.</small></div>                                                               
@@ -55,10 +55,7 @@
                             <div class="row">
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label">Product no.</label> 
-                                        <input type="text" class="form-control" ng-model="nwrc.Warranty.prodNo" name="prodNo" required>                                    
-                                        <div ng-messages="NWRF.prodNo.$touched && NWRF.prodNo.$error" style="color:maroon; text-transform: uppercase;" role="alert">
-                                             <div ng-message="required"><small><i class="fa fa-asterisk"></i> Product no. is mandatory.</small></div>                                                               
-                                        </div>                                           
+                                        <input type="text" class="form-control" ng-model="nwrc.Warranty.prodNo" name="prodNo" >                                                                             
                                     </div>
                                     <div class="col-lg-4 form-group">
                                         <label class="control-label">Product desc.</label> 
@@ -130,14 +127,24 @@
                                         </div>                                         
                                     </div>                       
                             </div>    
+                            <div class="row" stnyle="margin: 5px 0px 5px 0px;">
+                                <div class=col-lg-12 ng-show="nwrc.alerts.isComplete()">
+                                    <div class="alert alert-success" ng-show="nwrc.alerts.isComplete() && !nwrc.alerts.hasError()">
+                                        <i class="fa fa-check-circle"></i> {{nwrc.alerts.getMessage()}}
+                                    </div>
+                                    <div class="alert alert-success" ng-show="nwrc.alerts.isComplete() && nwrc.alerts.hasError()">
+                                        <i class="fa fa-exclamation-triangle"></i> {{nwrc.alerts.getMessage()}}
+                                    </div>                                
+                                </div>
+                            </div>                               
                         </form>                                                            
                     </div>
                     <!-- /.panel-body -->
                     <div class="panel-footer">
                         <div class="row">
-                            <div class="col-lg-2 col-lg-offset-10 text-right">
-                            <button class="btn btn-primary" ng-show="NWRF.$valid" ng-click="">Save</button>                                                        
-                                <a href="#/customers/list" class="btn btn-default">Back</a>
+                            <div class="col-lg-4 col-lg-offset-8 text-right">
+                            <button class="btn btn-primary" ng-show="NWRF.$valid" ng-click="nwrc.newWarrantyRecord();">Save</button>                                                        
+                                <button class="btn btn-default" ng-click="nwrc.reset();">Cancel</button>
                             </div>
                         </div>
                     </div><!-- /.panel-footer -->

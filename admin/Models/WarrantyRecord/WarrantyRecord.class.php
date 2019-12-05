@@ -119,7 +119,7 @@
 
 		public function newWarrantyRecord()
 		{
-			$query = sprintf("INSERT INTO %s (citilInvoiceNo,citilInvoiceDate,custId,prodNo,prodDesc,prodSerial,prodQty,distId,distInvoiceNo,distInvoiceDate,warrExYears,warrExpDate) VALUES('%s','%s',%d,'%s','%s','%s',%d,%d,'%s','%s',%d,'%s' )",$this->table,$this->data['citilInvoiceNo'],$this->data['citilInvoiceDate'],$this->data['custId'],$this->data['prodNo'],$this->data['prodDesc'],$this->data['prodSerial'],$this->data['prodQty'],$this->data['distId'],$this->data['distInvoiceNo'],$this->data['distInvoiceDate'],$this->data['warrExYears'],$this->data['warrExpDate']); 
+			$query = sprintf("INSERT INTO %s (citilInvoiceNo,citilInvoiceDate,custId,prodNo,prodDesc,prodSerial,prodQty,distId,distInvoiceNo,distInvoiceDate,warrExYears,warrExpDate) VALUES('%s','%s',%d,'%s','%s','%s',%d,%d,'%s','%s',%d,'%s' )",$this->table,$this->data['citilInvoiceNo'],$this->data['citilInvoiceDate'],$this->data['custId'],$this->data['prodNo'],$this->data['prodDesc'],$this->data['prodSerial'],$this->data['prodQty'],$this->data['distId'], $this->data['distInvoiceNo'],$this->data['distInvoiceDate'], $this->data['warrExYears'],$this->data['warrExpDate']); 
 			//return $query;
 			try 
 			{ 

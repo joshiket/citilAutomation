@@ -1,6 +1,6 @@
 app.controller("newWarrantyRecordController", function(dataService, alertService, pageService){
     var nwrc = this;
-
+    nwrc.alerts = alertService;
     nwrc.Customers = {};
     nwrc.Customers.fetchData = {};    
     nwrc.Customers.fetchData.action="getAllCustomers";
@@ -14,7 +14,7 @@ app.controller("newWarrantyRecordController", function(dataService, alertService
     nwrc.Distributors.data = [];
     
     nwrc.Warranty = {};
-    nwrc.Warranty.action = "newWarranty";
+    nwrc.Warranty.action = "newWarrantyRecord";
     nwrc.Warranty.primaryKey = "warrId";
     nwrc.Warranty.citilInvoiceNo = "";
     nwrc.Warranty.citilInvoiceDate = "";
@@ -35,6 +35,22 @@ app.controller("newWarrantyRecordController", function(dataService, alertService
             todayHighlight: true,
           });        
     }); 
+
+    nwrc.reset = function()
+    {
+        nwrc.Warranty.citilInvoiceNo = "";
+        nwrc.Warranty.citilInvoiceDate = "";
+        nwrc.Warranty.custId = "";
+        nwrc.Warranty.prodNo = "";
+        nwrc.Warranty.prodDesc = "";
+        nwrc.Warranty.prodSerial = "";
+        nwrc.Warranty.prodQty = "";
+        nwrc.Warranty.distId = "";
+        nwrc.Warranty.distInvoiceNo = "";
+        nwrc.Warranty.distInvoiceDate = "";
+        nwrc.Warranty.warrExYears = "";
+        nwrc.Warranty.warrExpDate = "";        
+    }
     
     nwrc.addToDate = function()
     {        
@@ -102,13 +118,31 @@ app.controller("newWarrantyRecordController", function(dataService, alertService
 	};
 
     
+	nwrc.newWarrantyRecord = function(){
+        console.log("saving warranty record...");
+        nwrc.Warranty.citilInvoiceDate = nwrc.convertDate(nwrc.Warranty.citilInvoiceDate);
+        nwrc.Warranty.distInvoiceDate = nwrc.convertDate(nwrc.Warranty.distInvoiceDate);
+        nwrc.Warranty.warrExpDate = nwrc.convertDate(nwrc.Warranty.warrExpDate);
+		//console.log(nwrc.Warranty);
+		var response = dataService.httpCall(nwrc.Warranty,"Models/WarrantyRecord/WarrantyRecordDAO.php");
+		response.then(function(result){
+            
+            var data = result.data;
+            console.log(data);
+			nwrc.alerts.init(true,data.error,data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};
 
 
     nwrc.init = function(){ 
         console.clear();
         console.log("initialising ...");
         nwrc.getCustomers();
-        nwrc.getDistributors();        
+        nwrc.getDistributors();     
+        nwrc.alerts.init(false,false,"")   ;
         document.forms[0].elements[0].focus();
     };
     nwrc.init();

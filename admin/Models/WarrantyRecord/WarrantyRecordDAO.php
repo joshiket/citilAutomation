@@ -1,7 +1,9 @@
 
 <?php
 	
-	include "WarrantyRecord.class.php";
+	spl_autoload_register(function($class) {
+        include  $class . '.class.php';
+    });
 
 	Class WarrantyRecordDAO
 	{
@@ -154,16 +156,17 @@
 			$msg = "";
 			$citilInvoiceNo = $this->fetchData("citilInvoiceNo");
 			$citilInvoiceDate = $this->fetchData("citilInvoiceDate");
-			$custId = $this->fetchData("custId");
-			$prodNo = $this->fetchData("prodNo");
+			$custId = $this->fetchData("custId");		
+			$prodNo = $this->fetchData("prodNO");	
 			$prodDesc = $this->fetchData("prodDesc");
 			$prodSerial = $this->fetchData("prodSerial");
 			$prodQty = $this->fetchData("prodQty");
 			$distId = $this->fetchData("distId");
+			$distInvoiceNo = $this->fetchData("distInvoiceNo");
 			$distInvoiceDate = $this->fetchData("distInvoiceDate");
 			$warrExYears = $this->fetchData("warrExYears");
 			$warrExpDate = $this->fetchData("warrExpDate");
-			if( $citilInvoiceNo == NULL ||  $citilInvoiceDate == NULL ||  $custId == NULL ||  $prodNo == NULL ||  $prodDesc == NULL ||  $prodSerial == NULL ||  $prodQty == NULL ||  $distId == NULL ||  $distInvoiceDate == NULL ||  $warrExYears == NULL ||  $warrExpDate == NULL  )
+			if( $citilInvoiceNo == NULL ||  $citilInvoiceDate == NULL ||  $custId == NULL ||  $prodDesc == NULL ||  $prodSerial == NULL ||  $prodQty == NULL ||  $distId == NULL || $distInvoiceNo == NULL ||$distInvoiceDate == NULL ||  $warrExYears == NULL ||  $warrExpDate == NULL  )
 			{
 				$msg = $this->RANS();
 			}
@@ -179,6 +182,7 @@
 				$obj->prodSerial= $prodSerial;
 				$obj->prodQty= $prodQty;
 				$obj->distId= $distId;
+				$obj->distInvoiceNo = $distInvoiceNo;
 				$obj->distInvoiceDate= $distInvoiceDate;
 				$obj->warrExYears= $warrExYears;
 				$obj->warrExpDate= $warrExpDate;
