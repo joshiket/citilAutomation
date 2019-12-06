@@ -30,7 +30,7 @@
                 
                 $config  = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false);
 				$con = new PDO("mysql:host=". $this->dbArr['dbserver'] ."; dname = "  . $this->dbArr['dbname'] ."", $this->dbArr['dbuser'] ,$this->dbArr['dbpass'] ,$config);
-                $query = "SELECT custName, prodSerial, prodDesc, expDate, acMan, email FROM wdbt.vw5days  where acManId <> 4";
+                $query = "SELECT custName, Branch, prodSerial, prodDesc, expDate, Manager, Email FROM wdbt.vw5days  where acManId <> 4";
 				//return $query;
 				$stmt = $con->prepare($query);
 				$stmt->execute();
@@ -60,7 +60,7 @@
                 
                 $config  = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false);
 				$con = new PDO("mysql:host=". $this->dbArr['dbserver'] ."; dname = "  . $this->dbArr['dbname'] ."", $this->dbArr['dbuser'] ,$this->dbArr['dbpass'] ,$config);
-                $query = "SELECT custName, prodSerial, prodDesc, expDate, acMan, email FROM wdbt.vw30days  where acManId <> 4 ";
+                $query = "SELECT custName, Branch, prodSerial, prodDesc, expDate, Manager, Email FROM wdbt.vw30days  where acManId <> 4 ";
                 $stmt = $con->prepare($query);
 				$stmt->execute();
 				if($stmt->rowCount()>0)
@@ -89,7 +89,7 @@
                 
                 $config  = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false);
 				$con = new PDO("mysql:host=". $this->dbArr['dbserver'] ."; dname = "  . $this->dbArr['dbname'] ."", $this->dbArr['dbuser'] ,$this->dbArr['dbpass'] ,$config);
-                $query = "SELECT custName, prodSerial, prodDesc, expDate , acMan, email FROM wdbt.vw60days  where acManId <> 4 ";
+                $query = "SELECT custName, Branch, prodSerial, prodDesc, expDate, Manager, Email FROM wdbt.vw60days  where acManId <> 4 ";
 				//return $query;
 				$stmt = $con->prepare($query);
 				$stmt->execute();
@@ -120,7 +120,7 @@
                 
                 $config  = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false);
 				$con = new PDO("mysql:host=". $this->dbArr['dbserver'] ."; dname = "  . $this->dbArr['dbname'] ."", $this->dbArr['dbuser'] ,$this->dbArr['dbpass'] ,$config);
-                $query = "SELECT custName, prodSerial, prodDesc, expDate , acMan, email FROM wdbt.vw90days  where acManId <> 4 ";
+                $query = "SELECT custName, Branch, prodSerial, prodDesc, expDate, Manager, Email FROM wdbt.vw90days  where acManId <> 4 ";
 				//return $query;
 				$stmt = $con->prepare($query);
 				$stmt->execute();

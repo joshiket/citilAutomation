@@ -165,9 +165,7 @@ app.controller("dashBoardController", function(dataService, alertService, pageSe
 		response.then(function(result){
 			//console.log(result);
 			var data = result.data;
-			//console.log(data);			
-			//console.log(data);
-		
+			//console.log(data);								
 			if(! data.error) 
 			{
 				dbc.W60.data = angular.fromJson(result.data.data);				
