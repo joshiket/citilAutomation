@@ -36,6 +36,7 @@
                                     <td>CITIL Invoice No.</td> 
                                     <td>CITIL Invoice Date</td>
                                     <td>Customer</td>
+                                    <td>Branch</td>
                                     <td>Prod. Serial</td>
                                     <td>Prod. Desc</td>
                                     <td>Prod. Qty</td>
@@ -47,14 +48,15 @@
                             <tbody>
                                  <tr ng-repeat="w in wrlc.Warranty.data2show  | filter:query track by $index">
                                     <td> {{$index+1}}</td> 
-                                    <td> {{w.citilInvoiceNo}}</td>
-                                    <td> {{w.citilInvoiceDate}} </td>
-                                    <td> {{w.custName}} </td>
-                                    <td> {{w.prodSerial}}</td>
-                                    <td> {{w.prodDesc}}</td>
-                                    <td> {{w.prodQty}}</td>
-                                    <td> {{w.expDate}}</td>
-                                    <td> {{w.acManName}}</td>
+                                    <td> {{w.InvNo}}</td>
+                                    <td> {{w.InvDate}} </td>
+                                    <td> {{w.CustName}} </td>
+                                    <td> {{w.Branch}} </td>
+                                    <td> {{w.ProdSerial}}</td>
+                                    <td> {{w.ProdDesc}}</td>
+                                    <td> {{w.ProdQty}}</td>
+                                    <td> {{w.ExpDate}}</td>
+                                    <td> {{w.Manager}}</td>
                                     <td> 
                                         <div class="dropdown">
                                             <button class="btn btn-xs btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

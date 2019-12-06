@@ -50,6 +50,8 @@ app.controller("newWarrantyRecordController", function(dataService, alertService
         nwrc.Warranty.distInvoiceDate = "";
         nwrc.Warranty.warrExYears = "";
         nwrc.Warranty.warrExpDate = "";        
+        document.forms[0].elements[0].focus();
+        nwrc.alerts.init(false,false,"")   ;
     }
     
     nwrc.addToDate = function()
