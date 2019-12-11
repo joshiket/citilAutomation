@@ -191,6 +191,9 @@
                                 <a href="#"><i class="fa fa-user"></i>&nbsp; Users <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                             <li>
+                                                <a href="#/Users/new">New User</a>
+                                            </li>
+                                            <li>
                                                 <a href="#/Users/changePassword">Change Password</a>
                                             </li>
                                             <li>

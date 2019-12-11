@@ -43,8 +43,9 @@ app.controller("changePasswordController", function(alertService,dataService,ses
 	cpc.User.oldPass = "";
 	cpc.User.newPass = "";
 	cpc.User.confPass = "";
-	cpc.User.action = "changePass";
+	cpc.User.action = "changePassword";
 	cpc.User.primaryKey = "usrEmail";
+	cpc.Alerts = alertService;
 
 	cpc.getUserEmail = function()
 	{
@@ -60,6 +61,22 @@ app.controller("changePasswordController", function(alertService,dataService,ses
 
 	};
 
+	cpc.changePassword = function(){
+		console.log("Changing User Password...");
+		//console.log(cpc.User);
+		var response = dataService.httpCall(cpc.User,"Models/User/UserDAO.php");
+		response.then(function(result){
+			var data = result.data;
+			console.log(data);
+			cpc.Alerts.init(true,data.error,data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};
+
+
+
 	cpc.init = function(){ 
 		console.log("initialising ...");
 		cpc.getUserEmail();
@@ -68,3 +85,6 @@ app.controller("changePasswordController", function(alertService,dataService,ses
 	 cpc.init();	
 });
 
+app.controller("newUserController", function(alertService,dataService,sessionService){
+	var nuc = this;
+});

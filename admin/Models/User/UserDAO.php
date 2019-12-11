@@ -51,6 +51,9 @@
 				case "updateUser":
 					$msg = $this->updateUser();
 					break;
+				case "changePassword":
+					$msg = $this->changePassword();
+				break;
 				default :
 					$msg = "Invalid action.";
 					break;
@@ -80,6 +83,28 @@
 			}
 			return $msg;				
 		}// login();
+
+		public function changePassword()
+		{
+			$msg = "";
+			$usrEmail = $this->fetchData("usrEmail");
+			$usrPass = $this->fetchData("usrPass");			
+			$newPass = $this->fetchData("newPass");		
+			if( $usrEmail == NULL  || $usrPass == NULL || $newPass == NULL)
+			{
+				$msg = $this->RANS();
+			}	
+			else
+			{
+				$msg = "";
+				$obj = new User();
+				$obj->usrEmail = $usrEmail;
+				$obj->usrPass = $usrPass;
+				$obj->newPass = $newPass;
+				$msg = $obj->changePassword();
+			}
+			return $msg;				
+		}
 
 		public function getAllUsers()
 		{

@@ -4,7 +4,7 @@
 
 		private $dbArr;
 		private $data = array();
-		private $table;
+		public $table;
 		private $child;
 		private $view;
 		private $messages = array();
@@ -34,7 +34,7 @@
 
 		public function __set($property, $value) 
 		{
-			if($property == "usrEmail" || $property == "usrPass" || $property == "usrName" || $property == "usrSecuQ" || $property == "usrSecuAns" )
+			if($property == "usrEmail" || $property == "usrPass" || $property == "usrName" || $property == "usrSecuQ" || $property == "usrSecuAns" || $property == "newPass")
 			{
 				$this->data[$property] = $value;
 			}
@@ -144,9 +144,11 @@
 		}// newCustomer()
 
 
-		public function saveUser()
+		public function saveUser($query="")
 		{
-			$query = sprintf("UPDATE %s set  usrPass = %s, usrName = %s, usrSecuQ = %s, usrSecuAns = %s where usrEmail = %s ",$this->usrPass,$this->usrName,$this->usrSecuQ,$this->usrSecuAns,$this->usrEmail); 
+			
+			if($query == "")
+				$query = sprintf("UPDATE %s set  usrPass = %s, usrName = %s, usrSecuQ = %s, usrSecuAns = %s where usrEmail = %s ",$this->usrPass,$this->usrName,$this->usrSecuQ,$this->usrSecuAns,$this->usrEmail); 
 			//return $query;
 			try 
 			{ 
@@ -216,19 +218,54 @@
 						$_SESSION["lgUser"] = $this->usrEmail;						
 						$msg = $this->generateResponse(FALSE,$this->messages["usrlogins"],FALSE);												
 					}
+					else
+					{
+						$msg = $this->generateResponse(TRUE, $this->messages['usrloginerr'], FALSE);	
+					}
 				}
 				else
 				{
 					$msg = $this->generateResponse(TRUE, $this->messages['usrloginerr'], FALSE);					
 				}
-				return $msg;
+				//return $msg;
 			}
 			catch(PDOException $e)
 			{
 				$msg = $this->generateResponse(TRUE, $e->getMessage(),TRUE);
-				return $msg;
+				//return $msg;
 			}//catch 
+			return $msg;
 		}//login()
+
+		public function changePassword()
+		{
+			$msg = "";
+			$msg = $this->login();
+			$msg = json_decode($msg);
+			if(is_object($msg))
+			{
+				if(!$msg->error)
+				{
+					$this->usrPass = $this->encryptAsync($this->newPass);
+					$query = sprintf("UPDATE %s SET usrPass = '%s' WHERE usrEmail ='%s' ",$this->table,$this->usrPass,$this->usrEmail);
+					$msg = $this->saveUser($query);
+					$msg1 = json_decode($msg);
+					if(is_object($msg1) && ! $msg1->error)
+					{
+						$msg = $this->generateResponse(FALSE, "Password changed.", FALSE);
+					}
+				}
+				else
+				{
+					$msg = $this->generateResponse(TRUE, $this->messages['usrloginerr'], FALSE);
+				}
+			}
+			else
+			{
+				$msg = $this->generateResponse(TRUE,"Unknown error.",FALSE);
+			}
+			return $msg;
+		}//changePassword()
 
 
 	} // Class 

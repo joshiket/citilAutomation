@@ -127,7 +127,13 @@ app.config(function($routeProvider){
         controller : "changePasswordController",
         controllerAs : "cpc",
         cache : false
-    })            
+    })  
+    .when("/Users/new",{
+        templateUrl  : "Views/User/new.php",
+        controller : "newUserController",
+        controllerAs : "nuc",
+        cache : false
+    })               
     .otherwise({ redirectTo : '/'});
 
 });
