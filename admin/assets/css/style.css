@@ -17,3 +17,10 @@
 {
     border-bottom: #007db8 solid 3px !important;
 }
+.err-msg
+{
+    color:maroon;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 5px 0px 0px 0px;
+}

@@ -35,3 +35,36 @@ app.controller("userLoginController", function(dataService, alertService){
     };
     ulc.init();    
 });
+
+app.controller("changePasswordController", function(alertService,dataService,sessionService){
+	var cpc = this;
+	cpc.User = {};											
+	cpc.User.usrEmail = "";
+	cpc.User.oldPass = "";
+	cpc.User.newPass = "";
+	cpc.User.confPass = "";
+	cpc.User.action = "changePass";
+	cpc.User.primaryKey = "usrEmail";
+
+	cpc.getUserEmail = function()
+	{
+		var response = sessionService.getKeyValue("lgUser");
+		response.then(function(result){
+			//console.log(result.data);
+			var data = result.data;
+			cpc.User.usrEmail = data.data;
+		},
+		function(result){
+			alert(angular.toJson(result));
+		});		
+
+	};
+
+	cpc.init = function(){ 
+		console.log("initialising ...");
+		cpc.getUserEmail();
+		document.forms[0].elements[1].focus();
+	};
+	 cpc.init();	
+});
+

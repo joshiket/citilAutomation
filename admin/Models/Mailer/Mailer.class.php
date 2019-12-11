@@ -119,36 +119,7 @@
             $manager= json_decode($manager);
             $messages = array();
             $msgArr = array();
-            $spreadsheet = new Spreadsheet();
-            //create new spread sheet
-            $sheet = $spreadsheet->getActiveSheet();    
-            $sheet->setCellValue('A1', 'Customer');        
-            $sheet->setCellValue('B1', 'Branch');        
-            $sheet->setCellValue('C1', 'Prod. No.');        
-            $sheet->setCellValue('D1', 'Prod. Serial');  
-            $sheet->setCellValue('E1', 'Prod. Desc');        
-            $sheet->setCellValue('F1', 'Prod. Qty');                          
-            $sheet->setCellValue('G1', 'Exp Date');     
 
-            $sheet->getStyle('A1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('A1')->getStyle()->getFont()->setBold(true);
-            $sheet->getStyle('B1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('B1')->getStyle()->getFont()->setBold(true);
-            $sheet->getStyle('C1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('C1')->getStyle()->getFont()->setBold(true);
-            $sheet->getStyle('D1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('D1')->getStyle()->getFont()->setBold(true);
-            $sheet->getStyle('E1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('E1')->getStyle()->getFont()->setBold(true);
-            $sheet->getStyle('F1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('F1')->getStyle()->getFont()->setBold(true);
-            $sheet->getStyle('G1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
-            $sheet->getCell('G1')->getStyle()->getFont()->setBold(true);
-            $sheet->getColumnDimension('A')->setWidth(30);
-            $sheet->getColumnDimension('A')->setWidth(25);
-            $sheet->getColumnDimension('E')->setWidth(40);
-            $sheet->getColumnDimension('D')->setWidth(20);
-            $sheet->getColumnDimension('G')->setWidth(20);
             if(is_object($manager))
             {
                 if(!$manager->error)
@@ -160,6 +131,35 @@
                     //return $log;
                     for($i =0; $i<sizeof($managers);$i++)
                     {
+                        $spreadsheet = new Spreadsheet();
+                        //create new spread sheet
+                        $sheet = $spreadsheet->getActiveSheet();    
+                        $sheet->setCellValue('A1', 'Customer');        
+                        $sheet->setCellValue('B1', 'Branch');        
+                        $sheet->setCellValue('C1', 'Prod. No.');        
+                        $sheet->setCellValue('D1', 'Prod. Serial');  
+                        $sheet->setCellValue('E1', 'Prod. Desc');        
+                        $sheet->setCellValue('F1', 'Prod. Qty');                          
+                        $sheet->setCellValue('G1', 'Exp Date');     
+            
+                        $sheet->getStyle('A1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('A1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getStyle('B1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('B1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getStyle('C1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('C1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getStyle('D1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('D1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getStyle('E1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('E1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getStyle('F1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('F1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getStyle('G1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)->getStartColor()->setARGB('A6A6A6');  
+                        $sheet->getCell('G1')->getStyle()->getFont()->setBold(true);
+                        $sheet->getColumnDimension('A')->setWidth(40);
+                        $sheet->getColumnDimension('E')->setWidth(40);
+                        $sheet->getColumnDimension('D')->setWidth(20);
+                        $sheet->getColumnDimension('G')->setWidth(20);                        
                         $lobj->log("Fetching records of " .$i . "-" . $managers[$i]['Manager'] ."\n ");
                         
                         $managerRecord = $this->getManagerWarrantyRecords($managers[$i]['acManId']);
@@ -259,21 +259,22 @@
                <body> 
 
                    Dear " . $acMan .", 
-                   <h5> Enclosed with this mail is the list of  products expiring within " . $this->mailMsg . ". Please find the same" ."
-                   </h5>";
-            //$content .= $mailContent;
+                   <h5> Warranties of the following products(s) is expiring within "  . $this->mailMsg . " ." .
+                   "</h5>";
+            $content .= $mailContent;
             $content .= "
 
                 </body>
-            </html";
+            </html>";
             $mail->Body = $content;
             $mail->AddAddress("ketan_j@citilindia.com");
             //$mail->AddAddress($email);
+            /*
             if($acMan == "Prafulla Patil")
             {
                 $mail->AddCC("sameer_b@citilindia.com");
             }
-            /*$mail->AddCC("kiran_k@citilindia.com");
+            $mail->AddCC("kiran_k@citilindia.com");
             $mail->AddCC("kiran_t@citilindia.com");
             $mail->AddCC("rahul_c@citilindia.com");
             $mail->AddCC("ketan_j@citilindia.com");*/

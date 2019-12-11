@@ -187,6 +187,18 @@
                                 </ul>                                         
 
                             </li>
+                            <li>
+                                <a href="#"><i class="fa fa-user"></i>&nbsp; Users <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                            <li>
+                                                <a href="#/Users/changePassword">Change Password</a>
+                                            </li>
+                                            <li>
+                                                <a href="logout.php">Logout</a>
+                                            </li>
+                                </ul>                                         
+
+                            </li>                            
                                                                                                                                     
                                 <!-- /.nav-second-level -->
                         </ul>
@@ -239,6 +251,7 @@
         <script src="Services/dataService.js"></script>
         <script src="Services/alertService.js"></script>
         <script src="Services/pageService.js"></script>
+        <script src="Services/sessionService.js"></script>
 
         <!--Controller Laading-->
         <!--

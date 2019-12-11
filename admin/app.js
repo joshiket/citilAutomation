@@ -121,7 +121,13 @@ app.config(function($routeProvider){
         controller : "customerBranchListController",
         controllerAs : "cblc",
         cache : false
-    })          
+    })    
+    .when("/Users/changePassword",{
+        templateUrl  : "Views/User/changepass.php",
+        controller : "changePasswordController",
+        controllerAs : "cpc",
+        cache : false
+    })            
     .otherwise({ redirectTo : '/'});
 
 });

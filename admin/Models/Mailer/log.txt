@@ -130,3 +130,63 @@ Fetching records of 1-Prafulla Patil
  {"error":false,"data":"[{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
 Manager Records fetched successfully 
  2 records fetched 
+Started - wdbt.vw60days - 06-12-2019
+Fetching distinct managers 
+ Distinct managers fetched - success
+ 2 managers fetched 
+ Fetching records of 0-Ajay Koot
+ {"error":false,"data":"[{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"HFST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"FGST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"G1P23C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6420DGQ\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG9\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG8\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGH\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGB\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 8 records fetched 
+Fetching records of 1-Prafulla Patil
+ {"error":false,"data":"[{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 2 records fetched 
+Started - wdbt.vw60days - 06-12-2019
+Fetching distinct managers 
+ Distinct managers fetched - success
+ 2 managers fetched 
+ Fetching records of 0-Ajay Koot
+ {"error":false,"data":"[{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"HFST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"FGST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"G1P23C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6420DGQ\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG9\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG8\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGH\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGB\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 8 records fetched 
+Fetching records of 1-Prafulla Patil
+ {"error":false,"data":"[{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 2 records fetched 
+Started - wdbt.vw60days - 06-12-2019
+Fetching distinct managers 
+ Distinct managers fetched - success
+ 2 managers fetched 
+ Fetching records of 0-Ajay Koot
+ {"error":false,"data":"[{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"HFST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"FGST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"G1P23C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6420DGQ\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG9\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG8\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGH\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGB\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 8 records fetched 
+Started - wdbt.vw60days - 06-12-2019
+Fetching distinct managers 
+ Distinct managers fetched - success
+ 2 managers fetched 
+ Fetching records of 0-Ajay Koot
+ {"error":false,"data":"[{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"HFST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"FGST4C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"ONWARD TECHNOLOGIES LTD\",\"Branch\":\"Pune\",\"prodNo\":\"3460\",\"prodSerial\":\"G1P23C2\",\"prodDesc\":\"Dell Latitude Laptop\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6420DGQ\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG9\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QG8\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGH\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"Hyundai\",\"Branch\":\"Pune\",\"prodNo\":\"M1P02AA\",\"prodSerial\":\"CNC6340QGB\",\"prodDesc\":\"HP Elitedisplay E242 Monitor\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 8 records fetched 
+Fetching records of 1-Prafulla Patil
+ {"error":false,"data":"[{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"755259-B21\",\"prodSerial\":\"SGH704X2KH\",\"prodDesc\":\"HP Proliant DL360 gen 9 Server\",\"prodQty\":1,\"expDate\":\"05-02-2020\"}]"}
+Manager Records fetched successfully 
+ 2 records fetched 
+Started - wdbt.vw90days - 06-12-2019
+Fetching distinct managers 
+ Distinct managers fetched - success
+ 3 managers fetched 
+ Fetching records of 0-Ashutosh Kawatkar
+ {"error":false,"data":"[{\"custName\":\"Envisage\",\"Branch\":\"Pune\",\"prodNo\":\"WGT3033-WW\",\"prodSerial\":\"70AC07309-BF-44\",\"prodDesc\":\"Watchguard Firewall\",\"prodQty\":1,\"expDate\":\"06-03-2020\"},{\"custName\":\"Sulzer\",\"Branch\":\"Pune\",\"prodNo\":\"914VF62MH\",\"prodSerial\":\"-\",\"prodDesc\":\"HP DL 380 Gen9 Server\",\"prodQty\":1,\"expDate\":\"05-03-2020\"}]"}
+Manager Records fetched successfully 
+ 2 records fetched 
+Fetching records of 1-Prafulla Patil
+ {"error":false,"data":"[{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"G3Q74A\",\"prodSerial\":\"VNF3J01083\",\"prodDesc\":\"HP LASERJET PRO MFP M227SDN PRINTER\",\"prodQty\":1,\"expDate\":\"06-03-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"G3Q74A\",\"prodSerial\":\"VNF3J01083\",\"prodDesc\":\"HP LASERJET PRO MFP M227SDN PRINTER\",\"prodQty\":1,\"expDate\":\"06-03-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"EB-X41\",\"prodSerial\":\"X4J28300027\",\"prodDesc\":\"EPSON EB-X41 PROJECTOR\",\"prodQty\":1,\"expDate\":\"06-03-2020\"},{\"custName\":\"NCL\",\"Branch\":\"Pune\",\"prodNo\":\"EB-X41\",\"prodSerial\":\"X4J28300027\",\"prodDesc\":\"EPSON EB-X41 PROJECTOR\",\"prodQty\":1,\"expDate\":\"06-03-2020\"}]"}
+Manager Records fetched successfully 
+ 4 records fetched 
+Fetching records of 2-Ajay Koot
+ {"error":false,"data":"[{\"custName\":\"ARAI\",\"Branch\":\"Pune\",\"prodNo\":\"7510\",\"prodSerial\":\"334CXF2\",\"prodDesc\":\"13 Mobile Workstation\",\"prodQty\":1,\"expDate\":\"01-03-2020\"}]"}
+Manager Records fetched successfully 
+ 1 records fetched 
