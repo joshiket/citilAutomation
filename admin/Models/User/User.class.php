@@ -117,7 +117,8 @@
 
 		public function newUser()
 		{
-			$query = sprintf("INSERT INTO %s (usrEmail,usrPass,usrName,usrSecuQ,usrSecuAns) VALUES(%s,%s,%s,%s,%s )",$this->table,$this->usrEmail,$this->usrPass,$this->usrName,$this->usrSecuQ,$this->usrSecuAns); 
+			$this->usrPass = $this->encryptAsync($this->usrPass);
+			$query = sprintf("INSERT INTO %s (usrEmail,usrPass,usrName,usrSecuQ,usrSecuAns) VALUES('%s','%s','%s','%s','%s' )",$this->table,$this->usrEmail,$this->usrPass,$this->usrName,$this->usrSecuQ,$this->usrSecuAns); 
 			//return $query;
 			try 
 			{ 
@@ -267,6 +268,56 @@
 			return $msg;
 		}//changePassword()
 
+		public function resetPassword()
+		{
+			$msg = "";
+			$msg = $this->getUser("usrSecuAns", " WHERE usrEmail = 'kiran_t@citilindia.com' ","","");
+			$msg = json_decode($msg);
+			if(is_object($msg) && (!$msg->error))
+			{
+				$msg = json_decode($msg->data);
+				$msg = $msg[0];		
+				$dbSecuAns = $msg->usrSecuAns;
+				if($dbSecuAns == $this->usrSecuAns)
+				{
+					$rPass = $this->randomPassord();
+					$this->usrPass = $this->encryptAsync($rPass);
+					$query = sprintf("UPDATE %s SET usrPass = '%s' WHERE usrEmail ='%s' ",$this->table,$this->usrPass,$this->usrEmail);
+					$msg = $this->saveUser($query);
+					$msg1 = json_decode($msg);
+					if(is_object($msg1) && ! $msg1->error)
+					{
+						$msg = $this->generateResponse(FALSE, "You Password is reset to ".$rPass . " . ", FALSE);
+					}
+					else
+					{
+						$msg = $this->generateResponse(TRUE, $msg1->msg , FALSE);
+					}					
+				}
+				else
+				{
+					$msg = $this->generateResponse(TRUE, "Invalid answer.", FALSE);
+				}
+			}
+			else
+			{
+				$msg = $this->generateResponse(TRUE, $this->messages['nrf'], FALSE);
+			}	
+			return $msg;					
+		}//resetPassword		
+
+		public function randomPassord()
+		{			
+				$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890$@&';
+				$pass = array(); //remember to declare $pass as an array
+				$alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+				for ($i = 0; $i < 8; $i++) {
+					$n = rand(0, $alphaLength);
+					$pass[] = $alphabet[$n];
+				}
+				return implode($pass); //turn the array into a string
+					
+		}//randomPassword()
 
 	} // Class 
 

@@ -45,9 +45,9 @@
                         <div class="col-lg-6">  
                             <label class="control-label">Confirm Password</label>
                              <input type="password"  name="confPass" class="form-control" placeholder="Confirm Password" ng-model="cpc.User.confPass" required >                                                                                     
-																												<div ng-messages="cpForm.confPass.$touched && cpForm.confPass.$error" class="err-msg" role="alert">
+							<div ng-messages="cpForm.confPass.$touched && cpForm.confPass.$error" class="err-msg" role="alert">
                                 <div ng-message="required"><small><i class="fa fa-asterisk"></i> Current Password is mandatory.</small></div>                                                               
-																																<div ng-show="cpc.User.confPass != cpc.User.newPass">Password does not match.</div>
+								<div ng-show="cpc.User.confPass != cpc.User.newPass"><i class="fa fa-asterisk"></i>Password does not match.</div>
                             </div> 																													
                         </div>
                     </div>                                                 
@@ -56,7 +56,7 @@
                             <div class="alert alert-success" ng-show="cpc.Alerts.isComplete() && !cpc.Alerts.hasError()">
                                 <i class="fa fa-check-circle"></i> {{cpc.Alerts.getMessage()}}
                             </div>
-                            <div class="alert alert-success" ng-show="cpc.Alerts.isComplete() && cpc.Alerts.hasError()">
+                            <div class="alert alert-danger" ng-show="cpc.Alerts.isComplete() && cpc.Alerts.hasError()">
                                 <i class="fa fa-exclamation-triangle"></i> {{cpc.Alerts.getMessage()}}
                             </div>                                
                         </div>

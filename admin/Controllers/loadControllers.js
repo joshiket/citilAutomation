@@ -3,7 +3,7 @@ function addScript(fileName)
     var scriptTag=document.createElement('script');
     scriptTag.setAttribute("type","text/javascript");
     scriptTag.setAttribute("src", fileName);
-    document.getElementsByTagName("head")[0].appendChild(scriptTag);
+    document.getElementsByTagName("body")[0].appendChild(scriptTag);
    // alert(scriptTag);
 }
 function init()

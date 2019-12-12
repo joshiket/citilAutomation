@@ -31,57 +31,61 @@
                 <!-- /.panel-heading -->            
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-6">                                
-                            
+                        <div class="col-lg-6">                                                            
                                 <label class="control-label">User Email</label>
-                                <input type="email"  name="usrEmail" class="form-control" placeholder="Email" ng-model="cpc.User.usrEmail"  required>                                                         
-                                <div ng-messages="cpForm.usrPass.$touched && cpForm.usrPass.$error" class="err-msg" role="alert">
-                                     <div ng-message="required"><small><i class="fa fa-asterisk"></i> Current Password is mandatory.</small></div>                                                               
-                           			  </div>                                 
+                                <input type="email"  name="usrEmail" class="form-control" placeholder="Email" ng-model="nuc.User.usrEmail"  ng-pattern="/^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/i" required>                                                         
+                                <div ng-messages="newUserForm.usrEmail.$touched && newUserForm.usrEmail.$error" class="err-msg" role="alert">
+                                     <div ng-message="required"><small><i class="fa fa-asterisk"></i> Email is mandatory.</small></div>                                                               
+                                     <div ng-message="pattern"><small><i class="fa fa-asterisk"></i> Valid email required.</small></div>                                                               
+                           			</div>                                 
                         </div>
                         <div class="col-lg-6">  
-                            <label class="control-label">Current Password</label>
-                            <input type="password"  name="usrPass" class="form-control" placeholder="Current Password" ng-model="cpc.User.usrPass" required autofocus>      
-                            <div ng-messages="cpForm.usrPass.$touched && cpForm.usrPass.$error" class="err-msg" role="alert">
-                                <div ng-message="required"><small><i class="fa fa-asterisk"></i> Current Password is mandatory.</small></div>                                                               
+                            <label class="control-label"> Password</label>
+                            <input type="password"  name="usrPass" class="form-control" placeholder="Password" ng-model="nuc.User.usrPass" required autofocus>      
+                            <div ng-messages="newUserForm.usrPass.$touched && newUserForm.usrPass.$error" class="err-msg" role="alert">
+                                <div ng-message="required"><small><i class="fa fa-asterisk"></i>  Password is mandatory.</small></div>                                                               
                             </div>                         
                         </div>
                     </div>   
                     <div class="row">
                         <div class="col-lg-6">  
                             <label class="control-label">Confirm Password</label>
-                             <input type="password"  name="confPass" class="form-control" placeholder="Confirm Password" ng-model="cpc.User.confPass" required >                                                                                     
-																												<div ng-messages="cpForm.confPass.$touched && cpForm.confPass.$error" class="err-msg" role="alert">
-                                <div ng-message="required"><small><i class="fa fa-asterisk"></i> Current Password is mandatory.</small></div>                                                               
-																																<div ng-show="cpc.User.confPass != cpc.User.newPass">Password does not match.</div>
+                             <input type="password"  name="confPass" class="form-control" placeholder="Confirm Password" ng-model="nuc.User.confPass" required >                                                                                     
+														 <div ng-messages="newUserForm.confPass.$touched && newUserForm.confPass.$error" class="err-msg" role="alert">                                                                                            
+																<div ng-show="nuc.User.confPass != nuc.User.usrPass"><i class="fa fa-asterisk"></i> Password does not match.</div>
                             </div> 																													
                         </div>
-                        <div class="col-lg-6">                                                        
-                            <label class="control-label">Security Question</label>
-                            <input type="password"  name="newPass" class="form-control" placeholder="New Password" ng-model="cpc.User.newPass" required >                                                                                                                    
-                            <div ng-messages="cpForm.newPass.$touched && cpForm.newPass.$error" class="err-msg" role="alert">
-                                <div ng-message="required"><small><i class="fa fa-asterisk"></i> Current Password is mandatory.</small></div>                                                               
-                            </div>   																												
-                        </div>                        
+                        <div class="col-lg-6">  
+                            <label class="control-label">Name</label>
+                            <input type="text"  name="usrName" class="form-control" placeholder="Full name" ng-model="nuc.User.usrName" required >                                                                                     
+							<div ng-messages="newUserForm.usrName.$touched && newUserForm.usrName.$error" class="err-msg" role="alert">                                                                                            
+								<div ng-message="required"><i class="fa fa-asterisk"></i> Password does not match.</div>
+                            </div> 																													
+                        </div>                      
                     </div>        
                     <div class="row">
-
+										<div class="col-lg-6">                                                        
+                            <label class="control-label">Security Question</label>
+                            <input type="text"  name="secuQ" class="form-control" placeholder="Security Question" ng-model="nuc.User.usrSecuQ" required >                                                                                                                    
+                            <div ng-messages="newUserForm.secuQ.$touched && newUserForm.secuQ.$error" class="err-msg" role="alert">
+                                <div ng-message="required"><small><i class="fa fa-asterisk"></i> Security question is mandatory.</small></div>                                                               
+                            </div>   																												
+                        </div>  
                         <div class="col-lg-6">  
                             <label class="control-label">Answer</label>
-                             <input type="password"  name="confPass" class="form-control" placeholder="Confirm Password" ng-model="cpc.User.confPass" required >                                                                                     
-																												<div ng-messages="cpForm.confPass.$touched && cpForm.confPass.$error" class="err-msg" role="alert">
-                                <div ng-message="required"><small><i class="fa fa-asterisk"></i> Current Password is mandatory.</small></div>                                                               
-																																<div ng-show="cpc.User.confPass != cpc.User.newPass">Password does not match.</div>
+                             <input type="text"  name="secuAns" class="form-control" placeholder="Security Answer" ng-model="nuc.User.usrSecuAns" required >                                                                                     
+														 <div ng-messages="newUserForm.secuAns.$touched && newUserForm.secuAns.$error" class="err-msg" role="alert">
+                                <div ng-message="required"><small><i class="fa fa-asterisk"></i> Security answer is mandatory.</small></div>                                                               																																
                             </div> 																													
                         </div>
                     </div>                                                               
                     <div class="row" stnyle="margin: 5px 0px 5px 0px;">
-                        <div class=col-lg-12 ng-show="cpc.Alerts.isComplete()">
-                            <div class="alert alert-success" ng-show="cpc.Alerts.isComplete() && !cpc.Alerts.hasError()">
-                                <i class="fa fa-check-circle"></i> {{cpc.Alerts.getMessage()}}
+                        <div class=col-lg-12 ng-show="nuc.Alerts.isComplete()">
+                            <div class="alert alert-success" ng-show="nuc.Alerts.isComplete() && !nuc.Alerts.hasError()">
+                                <i class="fa fa-check-circle"></i> {{nuc.Alerts.getMessage()}}
                             </div>
-                            <div class="alert alert-success" ng-show="cpc.Alerts.isComplete() && cpc.Alerts.hasError()">
-                                <i class="fa fa-exclamation-triangle"></i> {{cpc.Alerts.getMessage()}}
+                            <div class="alert alert-danger" ng-show="nuc.Alerts.isComplete() && nuc.Alerts.hasError()">
+                                <i class="fa fa-exclamation-triangle"></i> {{nuc.Alerts.getMessage()}}
                             </div>                                
                         </div>
                     </div>
@@ -90,8 +94,9 @@
                 <div class="panel-footer">
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-lg-3 col-lg-offset-9">                                            
-                                <button class="btn btn-primary" ng-show="cpForm.$valid" ng-click="cpc.changePassword();">Save</button>                                                        
+                            <div class="col-lg-4 col-lg-offset-8">                                            
+                                <button class="btn btn-primary" ng-show="newUserForm.$valid" ng-click="nuc.newUser();">Save</button>                                                        
+								<button class="btn btn-default" ng-click="nuc.resetForm();">Cancel</button>
                             </div>
                         </div>                                                    
                     </div>        

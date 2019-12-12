@@ -82,9 +82,128 @@ app.controller("changePasswordController", function(alertService,dataService,ses
 		cpc.getUserEmail();
 		document.forms[0].elements[1].focus();
 	};
-	 cpc.init();	
+	cpc.init();	
 });
 
 app.controller("newUserController", function(alertService,dataService,sessionService){
 	var nuc = this;
+	nuc.User = {};
+	nuc.User.action = "newUser";
+	nuc.User.primaryKey = "usrEmail";
+	nuc.User.usrEmail = "";
+	nuc.User.usrPass = "";
+	nuc.User.confPass = "";
+	nuc.User.usrName ="";
+	nuc.User.usrSecuQ = "";
+	nuc.User.usrSecuAns = "";	
+	nuc.Alerts = alertService;
+
+	nuc.newUser = function(){
+		//console.log("Creating User...");
+		//console.log(nuc.User);
+		var response = dataService.httpCall(nuc.User,"Models/User/UserDAO.php");
+		response.then(function(result){
+			//console.log(result);
+			var data = result.data;
+			console.log(data);
+			alertService.init(true,result.data.error,result.data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};
+
+	nuc.resetForm = function(){		
+		nuc.User.usrEmail = "";
+		nuc.User.usrPass = "";
+		nuc.User.confPass = "";
+		nuc.User.usrName ="";
+		nuc.User.usrSecuQ = "";
+		nuc.User.usrSecuAns = "";
+		nuc.Alerts.init(false,false,"");		
+	};
+
+
+	nuc.init = function(){ 
+		console.clear();
+		console.log("initialising ...");
+		document.forms[0].elements[0].focus();
+		nuc.Alerts.init(false,false,"");
+	};
+	 nuc.init();
+
+});
+
+app.controller("forgotPassController", function(alertService,dataService){
+	var fpc = this;
+	fpc.User = {};
+	fpc.User.usrEmail = "";
+	fpc.User.usrSecuQ = "";
+	fpc.User.usrSecuAns = "";
+	fpc.User.action = "getSecurityQuestion";
+	fpc.User.primaryKey = "usrEmail";
+	fpc.User.msg = "";
+
+	fpc.tabs = {};
+	fpc.tabs.ctab = 1;
+
+	fpc.tabs.setCurrrentTab = function(n){
+		fpc.tabs.ctab = n;
+		if(n == 2)
+			fpc.getSecurityQuestion();
+	};
+
+	fpc.tabs.isCurrentTab = function(n){
+		var f = (fpc.tabs.ctab == n ) ? true : false;
+		return f;
+	}
+	fpc.getSecurityQuestion = function(){
+		console.log("Fetching Security Question...");
+		//console.log(fpc.User);
+		var response = dataService.httpCall(fpc.User,"admin/Models/User/UserDAO.php");
+		response.then(function(result){
+			console.log(result);
+			var data  = result.data;
+			if(!data.error)
+			{
+				var data = angular.fromJson(data.data);
+				fpc.User.usrSecuQ =(data[0].usrSecuQ);
+				fpc.User.action = "resetPassword";
+				fpc.tabs.setCurrrentTab(2)
+				//fpc.User.usrSecuQ
+			}
+			else
+			{
+				alert(data.msg);
+			}
+			//alertService.init(true,result.data.error,result.data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};	
+
+	fpc.resetPassword = function(){
+		console.log("Reseting Password...");
+		//console.log(fpc.User);
+		var response = dataService.httpCall(fpc.User,"admin/Models/User/UserDao.php");
+		response.then(function(result){
+			console.log(result);
+			var data = result.data;
+			if(!data.error)
+			{
+				fpc.User.msg = data.msg;
+				fpc.tabs.setCurrrentTab(3);
+			}
+			else
+			{
+				alert(data.msg);
+			}
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};
+
+	
 });
