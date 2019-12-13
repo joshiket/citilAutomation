@@ -306,6 +306,13 @@
 			return $msg;					
 		}//resetPassword		
 
+		public function resetSecurityQuestion()
+		{
+			$query = sprintf("UPDATE %s SET usrSecuQ = '%s', usrSecuAns = '%s' WHERE usrEmail ='%s' ",$this->table,$this->usrSecuQ,$this->usrSecuAns,$this->usrEmail);
+			$msg = $this->saveUser($query);
+			return $msg;
+		}
+
 		public function randomPassord()
 		{			
 				$alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890$@&';

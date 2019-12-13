@@ -63,8 +63,11 @@
 				case "resetPassword":
 					$msg = $this->resetPassword();
 					break;
+				case "resetSecurityQuestion":
+					$msg = $this->resetSecurityQuestion();
+					break;					
 				default :
-					$msg = "Invalid action.";
+					$msg = $this->invalidAction();
 					break;
 			} // switch 
 
@@ -73,6 +76,13 @@
 		} // processAction()
 
 
+		
+		public function invalidAction()
+		{
+			$msgArr["error"] = TRUE;
+			$msgArr["msg"] = "Invalid Action";
+			return json_encode($msgArr);
+		}
 		public function login()
 		{
 			$msg = "";
@@ -249,6 +259,27 @@
 				$msg = $obj->resetPassword();
 			}
 			return $msg;			
+		}
+
+		public function resetSecurityQuestion()
+		{
+			$msg="";
+			$usrEmail = $this->fetchData("usrEmail");
+			$usrSecuQ = $this->fetchData("usrSecuQ");
+			$usrSecuAns = $this->fetchData("usrSecuAns");
+			if( $usrEmail == NULL  || $usrSecuQ == NULL || $usrSecuAns == NULL)
+			{
+				$msg = $this->RANS();
+			}	
+			else
+			{
+				$obj = new User();
+				$obj->usrEmail = $usrEmail;
+				$obj->usrSecuQ = $usrSecuQ;
+				$obj->usrSecuAns= $usrSecuAns;
+				$msg = $obj->resetSecurityQuestion();				
+			}	
+			return $msg;	
 		}
 
 } // Class 

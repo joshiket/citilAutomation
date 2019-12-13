@@ -21,7 +21,7 @@ app.controller("userLoginController", function(dataService, alertService){
             }
             else
             {
-                alert("Invalid crdentials.");                
+                alert("Invalid credentials.");                
             }
 			//alertService.init(true,result.data.error,result.data.msg);
 		},
@@ -149,14 +149,13 @@ app.controller("forgotPassController", function(alertService,dataService){
 
 	fpc.tabs.setCurrrentTab = function(n){
 		fpc.tabs.ctab = n;
-		if(n == 2)
-			fpc.getSecurityQuestion();
 	};
 
 	fpc.tabs.isCurrentTab = function(n){
 		var f = (fpc.tabs.ctab == n ) ? true : false;
 		return f;
 	}
+
 	fpc.getSecurityQuestion = function(){
 		console.log("Fetching Security Question...");
 		//console.log(fpc.User);
@@ -206,4 +205,120 @@ app.controller("forgotPassController", function(alertService,dataService){
 	};
 
 	
+});
+
+app.controller("changeSecuQController", function(alertService,dataService,sessionService){
+	var csqc = this;
+	csqc.User = {};
+	csqc.User.primaryKey = "usrEmail";
+	csqc.User.action = "login";
+	csqc.User.usrEmail = "";
+	csqc.User.usrPass = "";
+	csqc.User.usrSecuQ = "";
+	csqc.User.usrSecuAns = "";
+	csqc.Alerts = alertService;
+
+	csqc.tabs = {};
+	csqc.tabs.ctab = 0;
+
+	csqc.tabs.setCurrrentTab = function(n){
+		csqc.tabs.ctab = n;					
+	};
+
+	csqc.tabs.isCurrentTab = function(n){
+		var f = (csqc.tabs.ctab == n ) ? true : false;
+		return f;
+	}	
+
+	csqc.getUserEmail = function()
+	{
+		var response = sessionService.getKeyValue("lgUser");
+		response.then(function(result){
+			//console.log(result.data);
+			var data = result.data;
+			csqc.User.usrEmail = data.data;
+		},
+		function(result){
+			alert(angular.toJson(result));
+		});		
+
+	};	
+
+	csqc.login = function(){
+		console.log("autheticating user...");
+		console.log(csqc.User);
+		var response = dataService.httpCall(csqc.User,"Models/User/UserDAO.php");
+		response.then(function(result){
+            console.log(result);
+            console.log(result.data);
+            var data= angular.fromJson(result.data);
+            console.log(data);
+            if(!data.error)
+            {
+				
+				csqc.User.action = "getSecurityQuestion";
+				csqc.getSecurityQuestion();
+            }
+            else
+            {
+                alert(data.msg);                
+            }
+			//alertService.init(true,result.data.error,result.data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});		
+	}	
+
+	csqc.getSecurityQuestion = function(){
+		console.log("Fetching Security Question...");
+		//console.log(fpc.User);
+		var response = dataService.httpCall(csqc.User,"Models/User/UserDAO.php");
+		response.then(function(result){
+			console.log(result);
+			var data  = result.data;
+			if(!data.error)
+			{
+				var data = angular.fromJson(data.data);
+				csqc.User.usrSecuQ =(data[0].usrSecuQ);
+				csqc.User.action = "resetSecurityQuestion";
+				csqc.tabs.setCurrrentTab(2)
+				//fpc.User.usrSecuQ
+			}
+			else
+			{
+				alert(data.msg);
+			}
+			//alertService.init(true,result.data.error,result.data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};	
+
+	csqc.resetSecurityQuestion = function(){
+		//console.log("Reseting Security Question...");
+		console.log(csqc.User);
+		var response = dataService.httpCall(csqc.User,"Models/User/UserDAO.php");
+		response.then(function(result){
+			//console.log(result);
+			var data = result.data;
+			console.log(data);
+			csqc.Alerts.init(true,data.error,data.msg);
+		},
+		  function(result){
+			alert(angular.toJson(result));
+		});
+	};
+
+
+
+	csqc.init = function(){ 
+		console.clear();
+		console.log("initialising ...");
+		csqc.tabs.setCurrrentTab(1);
+		csqc.getUserEmail();
+		csqc.Alerts.init(false,false,"");
+	};
+	csqc.init();
 });

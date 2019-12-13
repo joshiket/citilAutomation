@@ -197,6 +197,9 @@
                                                 <a href="#/Users/changePassword">Change Password</a>
                                             </li>
                                             <li>
+                                                <a href="#/Users/changeSecurityQuestion">Change Security Question</a>
+                                            </li>                                            
+                                            <li>
                                                 <a href="logout.php">Logout</a>
                                             </li>
                                 </ul>                                         

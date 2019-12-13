@@ -235,7 +235,7 @@
                                  </tr>
                             </tbody>
                         </table>
-                        <div class="row" ng-show="dbc.W60.Paging.pagingRequired();">
+                        <div class="row" ng-show="dbc.W60.data.length>=15">
                             <div class="col-lg-9 text-left">
                                 <button class="btn btn-primary btn-xs" ng-show="dbc.W60.Paging.showPrevious()" ng-click="dbc.W60.Paging.First(dbc.W60);"> <i class="fa fa-backward"></i></button>
                                 <button class="btn btn-primary btn-xs" ng-show="dbc.W60.Paging.showNext()" ng-click="dbc.W60.Paging.Last(dbc.W60);"> <i class="fa fa-forward"></i></button>

@@ -128,6 +128,12 @@ app.config(function($routeProvider){
         controllerAs : "cpc",
         cache : false
     })  
+    .when("/Users/changeSecurityQuestion",{
+        templateUrl  : "Views/User/changeSecuQ.php",
+        controller : "changeSecuQController",
+        controllerAs : "csqc",
+        cache : false
+    })     
     .when("/Users/new",{
         templateUrl  : "Views/User/new.php",
         controller : "newUserController",

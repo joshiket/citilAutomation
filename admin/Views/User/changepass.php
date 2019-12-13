@@ -51,7 +51,7 @@
                             </div> 																													
                         </div>
                     </div>                                                 
-                    <div class="row" stnyle="margin: 5px 0px 5px 0px;">
+                    <div class="row" style="margin: 5px 0px 5px 0px;">
                         <div class=col-lg-12 ng-show="cpc.Alerts.isComplete()">
                             <div class="alert alert-success" ng-show="cpc.Alerts.isComplete() && !cpc.Alerts.hasError()">
                                 <i class="fa fa-check-circle"></i> {{cpc.Alerts.getMessage()}}
